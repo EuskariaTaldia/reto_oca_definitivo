@@ -12,11 +12,6 @@ class Pregunta extends Model
     // Primay key de la tabla
     protected $primaryKey = 'codPregun';
 
-    // Columnas que contiene
-    protected $fillable = [
-        'pregun', 'resCorre', 'resFall1', 'resFall2', 'codMujer',
-    ];
-
 
     // Relaciones
     public function mujer() {

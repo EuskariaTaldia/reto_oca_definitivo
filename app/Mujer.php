@@ -10,23 +10,16 @@ class Mujer extends Model
     protected $table = 'mujeres';
 
     // Primay key de la tabla
-    protected $primaryKey = 'codMujer';
+    protected $primaryKey = 'id';
 
-    // Columnas que contiene
-    protected $fillable = [
-        'codArea', 'nombre', 'fechas', 'subarea', 'datos', 'datos_eus',
-        'datos_ing', 'enlace', 'codZona', 'zona', 'fotografia',
-    ];
 
-    // Relaciones    
+    // Relaciones
     public function area() {
         return $this->hasOne('App\Area');
     }
 
-    
+
     public function zona() {
         return $this->hasOne('App\Zona');
     }
-
-    
 }

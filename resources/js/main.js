@@ -317,12 +317,9 @@ function cambiarColores(jugador){
     //definimos la casilla que queremos cambiar 
     classeCambiar = jugadores[jugador][1].toString();
     alert("bamos a cambiar el color esta es la classe cambiar: "+classeCambiar)
- 
-    //desaparecer ficha anterior
-
-    //mover ficha
-        document.getElementById('ficha_'+jugadores[jugador][3]+'_'+jugadores[jugador][2]+'').style.display="none";
-        document.getElementById('ficha_'+jugadores[jugador][1]+'_'+jugadores[jugador][2]+'').style.display="inline";
+    //mover ficha desaparecer ficha anterior
+    document.getElementById('ficha_'+jugadores[jugador][3]+'_'+jugadores[jugador][2]+'').style.display="none";
+    document.getElementById('ficha_'+jugadores[jugador][1]+'_'+jugadores[jugador][2]+'').style.display="inline";
 
 }
 function cambiosPantalla(jugador,numJuga){
