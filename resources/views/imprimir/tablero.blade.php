@@ -53,6 +53,8 @@
           <div id="die1" class="dice"></div>
           <button onclick="onclikar()">Tira el Dado</button>
           <button onclick="valores(1,26)"> Dado trampa</button> 
+          <button onclick="window.print();">imprimir</button>
+
         <nav>
       </div>
     </div>

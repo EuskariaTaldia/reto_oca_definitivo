@@ -484,7 +484,7 @@ body {
     grid-gap: 10px; /*grind-colum-gap*/
     
 }
-.ficha{
+[id*=ficha]{
     width: 10px;
 }
 .sidecontenedor{
@@ -509,7 +509,7 @@ body {
 }
 
 .tabla div{
-    background-color: red;
+    background-color: white;
     border-top: 2px solid black;
     border-left: 2px solid black;  
     border-right: 2px solid black;   

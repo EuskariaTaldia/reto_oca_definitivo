@@ -7,6 +7,7 @@ var mapArray=[
     [26,47,48,49,50,51,34,9],
     [27,28,29,30,31,32,33,8],
     [0,1,2,3,4,5,6,7]
+    
 ];
 
 var jugadores = [];
@@ -30,13 +31,12 @@ var TiradaSancionada = [];
             console.log("gola");
             $(".tabla").append('<div id="' + mapArray[i][j] + '">' + mapArray[i][j] + '</div>');
             for(var k=1;k<= jokalariKopurua;k++){
-                $('#'+mapArray[i][j]+'').append('<img class="ficha" src="../public/images/ficha'+this.coloresJuga[k-1]+'.png">')
-                }
-        }
-
-       
-    }
+                $('#'+mapArray[i][j]+'').append('<img id="ficha_'+mapArray[i][j]+'_'+k+'" src="../public/images/ficha'+this.coloresJuga[k-1]+'.png" style="display: none">')
     
+            }
+            }
+        }
+  
 
     // var my_text=prompt('jokalari kopurua');
     // if(my_text) alert(my_text);
@@ -53,13 +53,19 @@ function hasiera(jokalariKopurua){
     for(i = 1 ; i <= jokalariak ; i++){
         var turno = 0;
         var casilla = 0;
-        // El nombre del array es igual al numero del jugador
-        var nombre = [turno, casilla];
+        var jugador = i;
+        // El nombre del array es igual al numero del jugadora
+        var tiradaAte=0;
+        var nombre = [turno, casilla,jugador,tiradaAte];
         var Sancion = 0;
         jugadores.push(nombre);
         TiradaSancionada.push(Sancion);
     }
-    
+    for(var z=0;z<= (jokalariKopurua-1);z++){
+        console.log(jugadores);
+        console.log('ficha_'+jugadores[z][1]+'_'+jugadores[z][2]+'')
+        document.getElementById('ficha_'+jugadores[z][1]+'_'+jugadores[z][2]+'').style.display="inline";
+    }
     // Guardamos el numero de jugadores
     window.localStorage.setItem('numJuga', jugadores.length);
     alert("Jugadores -> " + jugadores.length);
@@ -112,11 +118,13 @@ function valores(jugador,d1){
     jugador=jugador-1;
     //se recoje los valores anteriores antes de la tirada actual
     jugaJugador = jugadores[jugador][0];
-    tiradaAnterior = jugadores[jugador][1];
+    jugadores[jugador][3] = jugadores[jugador][1];
     //se suma un turno
-    jugadores[jugador][0] = jugaJugador+d1;
+    
+    jugadores[jugador][0] = jugaJugador++;
     //definimos la tirada actual
-    TiradaActual=tiradaAnterior+d1
+    console.log("estatirada"+d1)
+    TiradaActual=jugadores[jugador][3]+d1
     //comprobamos que el numero en el que ha caido este turno no es una casilla especial
     var encontrado=false;
     encontrado=tiradaRealizada(jugador,TiradaActual);
@@ -304,18 +312,19 @@ function amaitu(jugador,TiradaActual){
     jugadores[jugador][1]=MoverFicha;
     cambiarColores(jugador);
 }
-
 function cambiarColores(jugador){
     turno.innerHTML = "tiro del jugador"+jugadores[jugador][0];
     //definimos la casilla que queremos cambiar 
     classeCambiar = jugadores[jugador][1].toString();
     alert("bamos a cambiar el color esta es la classe cambiar: "+classeCambiar)
-    //definimos los colores de cada jugador 
-    colorJugador= "green";
-    //cambiamos el color    
-    document.getElementById(classeCambiar).style.backgroundColor = colorJugador;
-}
+ 
+    //desaparecer ficha anterior
 
+    //mover ficha
+        document.getElementById('ficha_'+jugadores[jugador][3]+'_'+jugadores[jugador][2]+'').style.display="none";
+        document.getElementById('ficha_'+jugadores[jugador][1]+'_'+jugadores[jugador][2]+'').style.display="inline";
+
+}
 function cambiosPantalla(jugador,numJuga){
 alert("entramos canbios pantalla")
 alert("el jugador es " +jugador)
@@ -326,7 +335,6 @@ if(jugador>parseInt(numJuga,10)){
      jugador=1;
  }
  //buscar sanciones
-
 
  var variable = jugador;
  if(variable % 2){
