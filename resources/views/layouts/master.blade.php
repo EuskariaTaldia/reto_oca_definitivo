@@ -28,8 +28,8 @@
 
     <a id='backtotop' href='#top'><i class='fa fa-chevron-up'></i></a>
     
+    
     {{-- FOOTER --}}
-
     <footer class="container-fluid footerBg py-5">
       <div class="container">
         <div class="row">

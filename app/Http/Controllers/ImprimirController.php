@@ -14,8 +14,7 @@ class ImprimirController extends Controller  {
 
     public function getGaleria() {
         $arrayMujeres = Mujer::all();
-        $arrayZonas = Zona::all();
-        $arrayAreas = Area::all();
+        // $arrayAreas = Area::all();
         
         if(Auth::check() ) {
             $usuario = Auth::user();
@@ -23,7 +22,7 @@ class ImprimirController extends Controller  {
             $usuario = "anonimo";
         }
 
-        return view('imprimir.galeria', compact("usuario", "arrayMujeres", "arrayAreas", "arrayZonas"));
+        return view('imprimir.galeria', compact("usuario", "arrayMujeres"));
     }
 
     
@@ -42,7 +41,6 @@ class ImprimirController extends Controller  {
 
     public function getPreguntas() {
         $arrayPreguntas = Pregunta::all();
-        $arrayMujeres = Mujer::all();
 
         if(Auth::check() ) {
             $usuario = Auth::user();
@@ -50,10 +48,17 @@ class ImprimirController extends Controller  {
             $usuario = "anonimo";
         }
 
-        return view('imprimir.preguntas',  compact("usuario", "arrayPreguntas", "arrayMujeres"));
+        return view('imprimir.preguntas',  compact("usuario", "arrayPreguntas"));
+    }
+
+    public function galeriaDatos() {
+        $mujeres = Mujer::all();
+        
+        return view('galeriaDatos', ["arraymujeres" => $mujeres]);
     }
 
 
+    // TABLERO DE LA OCA
     public function getTablero(Request $request) {        
         if(Auth::check() ) {
             $usuario = Auth::user();

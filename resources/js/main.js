@@ -44,7 +44,7 @@ function jugar() {
             console.log("gola");
             $(".tabla").append('<div id="' + mapArray[i][j] + '">' + mapArray[i][j] + '</div>');
             for(var k=1;k<= jokalariKopurua;k++){
-                $('#'+mapArray[i][j]+'').append('<img class="ficha" src="../public/images/ficha'+this.coloresJuga[k-1]+'.png">')
+                $('#'+mapArray[i][j]+'').append('<img class="ficha" src="../public/images/tablero/ficha'+this.coloresJuga[k-1]+'.png">')
             }        
         
         }       
@@ -95,22 +95,22 @@ function dado(){
     // var pos =d1 + y;
     switch(d1){
         case d1=1:
-            die1.innerHTML = "<img src='../public/images/dado1.png' alt='dado1'>";
+            die1.innerHTML = "<img src='../public/images/tablero/dado1.png' alt='dado1'>";
             break;
         case d1=2:
-            die1.innerHTML = "<img src='../public/images/dado2.png' alt='dado2'>";
+            die1.innerHTML = "<img src='../public/images/tablero/dado2.png' alt='dado2'>";
             break;
         case d1=3:
-            die1.innerHTML = "<img src='../public/images/dado3.png' alt='dado3'>";
+            die1.innerHTML = "<img src='../public/images/tablero/dado3.png' alt='dado3'>";
             break;
         case d1=4:
-            die1.innerHTML = "<img src='../public/images/dado4.png' alt='dado4'>";
+            die1.innerHTML = "<img src='../public/images/tablero/dado4.png' alt='dado4'>";
             break;
         case d1=5:
-            die1.innerHTML = "<img src='../public/images/dado5.png' alt='dado5'>";
+            die1.innerHTML = "<img src='../public/images/tablero/dado5.png' alt='dado5'>";
             break;
         case d1=6:
-            die1.innerHTML = "<img src='../public/images/dado6.png' alt='dado6'>";
+            die1.innerHTML = "<img src='../public/images/tablero/dado6.png' alt='dado6'>";
             break;
     }
         return d1;

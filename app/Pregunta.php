@@ -9,8 +9,10 @@ class Pregunta extends Model
     // Nombre tabla
     protected $table = 'preguntas';
 
-    // Primay key de la tabla
-    protected $primaryKey = 'codPregun';
+    // Primary key de la tabla
+    protected $primaryKey = 'codPregunta';
+
+    protected $foreignKey = "codMujer";
 
     // Columnas que contiene
     protected $fillable = [
@@ -20,7 +22,7 @@ class Pregunta extends Model
 
     // Relaciones
     public function mujer() {
-        return $this->hasOne('App\Mujer');
+        return $this->hasOne('App\Mujer', 'id' , 'codMujer');
     }
 
 }

@@ -7,22 +7,23 @@ use App\User;
 use App\Area;
 use App\Zona;
 
-class HomeController extends Controller {
+class HomeController extends Controller
+{
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct() {
-    
-        // $this->middleware('auth');
+    public function __construct()
+    {
+        //$this->middleware('auth');
     }
+
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    
     public function getIndex() {
         if(Auth::check() ) {
             $usuario = Auth::user();
@@ -39,5 +40,4 @@ class HomeController extends Controller {
     public function getWelcome() {
         return view('welcome');
     }
-
 }

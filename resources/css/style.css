@@ -1,6 +1,7 @@
 .dataContainer {
     max-width: 100%;
     padding: 0;
+    padding-bottom: 10%;
 }
 
 /* NAVEGACION */
@@ -26,6 +27,11 @@
     padding: 10px;
     padding-bottom: 0px;
     padding-top: 0px;
+}
+
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
 }
 
 .icon-size {
@@ -502,6 +508,7 @@ body {
     border-right: 2px solid black;
     border-bottom: 2px solid black;
 }
+
 .tabla {
     display: grid;
     grid-gap: 10px; /*grind-colum-gap*/
@@ -509,6 +516,7 @@ body {
     grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px;
     text-align: center;
 }
+
 /* INFORMACION */
 .impFotoMujer {
     width: 400px;
@@ -750,7 +758,6 @@ tbody tr {
     background-size: cover;
     z-index: 1;
 }
-
 
 .leftPart {
     border-right: 1px solid grey;

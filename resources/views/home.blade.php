@@ -9,8 +9,8 @@
                     <h5 class="modal-title">ELIGE TU MODO DE JUEGO</h5>
                 </div>
                 
-                <input type="hidden" id="arrayAreas" name="arrayAreas" value="{{$arrayAreas}}">
-                <input type="hidden" id="arrayZonas" name="arrayZonas" value="{{$arrayZonas}}">
+                <input type="hidden" id="arrayAreas" name="arrayAreas" value="{{$arrayAreas}}"/>
+                <input type="hidden" id="arrayZonas" name="arrayZonas" value="{{$arrayZonas}}"/>
 
                 <form method="POST" action="{{url('/imprimirTablero')}}" class="myForm" id="PostJugar">
                     @csrf
@@ -27,8 +27,8 @@
                                     </div>
 
                                     <div class="custom-select rbJugadores">
-                                        <input type="radio" name="gameType" value="conPreguntas" id="conPreguntas" checked> Con Preguntas<br>
-                                        <input type="radio" name="gameType" value="sinPreguntas" id="sinPreguntas"> Sin Preguntas<br>
+                                        <input type="radio" name="gameType" value="conPreguntas" id="conPreguntas" checked/> Con Preguntas<br>
+                                        <input type="radio" name="gameType" value="sinPreguntas" id="sinPreguntas"/> Sin Preguntas<br>
                                     </div>
                                 </div>
 
@@ -69,20 +69,21 @@
                                         <label class="input-group-text">Jugadores</label>
                                     </div>
                 
-                                    <input type="number" class="custom-select inputJugadores" min="1" max="4" value="1" name="jugador" required>
+                                    <input type="number" class="custom-select inputJugadores" min="1" max="4" value="1" name="jugador" required/>
                                 </div>
                             </div>
                         </div>
 
-                    <div class="modal-footer">
-                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Borrar</button>
-                        <button type="submit" class="btn btn-dark" id="btnJugar">Jugar</button>    
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Borrar</button>
+                            <button type="submit" class="btn btn-dark" id="btnJugar">Jugar</button>    
+                        </div>
+
                     </div>
-
-                </div>
-            </form>
-
+                </form>
+            </div>
         </div>
     </div>
+
 
 @endsection
