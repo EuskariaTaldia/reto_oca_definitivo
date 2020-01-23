@@ -23,8 +23,45 @@
 
     {{-- INCLUIMOS UN CONTAINER QUE CADA PAGINA TENDRÁ SU CONTENIDO --}}
     <div class="container dataContainer">
-        @yield('content')
+      @yield('content')
     </div>
+
+    <a id='backtotop' href='#top'><i class='fa fa-chevron-up'></i></a>
+    
+    {{-- FOOTER --}}
+
+    <footer class="container-fluid footerBg py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-4 leftPart">
+                <h6> Echa un vistazo</h6>              
+                  <ul>
+                    <li> <a href="https://desayunosfeministascantabria.wordpress.com" target="_blank"> Inicio</a> </li>
+                    <li> <a href="https://desayunosfeministascantabria.wordpress.com/entradas/" target="_blank"> ¿Quienes somos? </a> </li>
+                    <li> <a href="https://desayunosfeministascantabria.wordpress.com/agenda/" target="_blank"> Agenda</a> </li>
+                    <li> <a href="https://desayunosfeministascantabria.wordpress.com/recursos/" target="_blank"> Recursos</a> </li>
+                    <li> <a href="https://desayunosfeministascantabria.wordpress.com/temas/" target="_blank"> Temas</a> </li>
+                    <li> <a href="https://desayunosfeministascantabria.wordpress.com/contacto/" target="_blank"> Contacto</a> </li>
+                  </ul>
+              </div>
+
+              <div class="col-md-6 float-right"> 
+                <h6> Redes Sociales</h6>
+                <p>Siguenos en nuestras redes sociales si quieres estar al tanto de lo que hacemos!</p>
+                <div class="social">
+                  <a href="https://desayunosfeministascantabria.wordpress.com" target="_blank"><i class="fa fa-wordpress" aria-hidden="true"></i></a>
+                  <a href="https://www.facebook.com/desayunos.feministas.188" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </footer>
 
 
     <!-- Optional JavaScript -->
@@ -41,5 +78,7 @@
     <script src="../resources/js/myJavascript.js" ></script>
     <script src="../resources/js/edit.js" ></script>
     <script src="../resources/js/main.js"></script>
+    <script src="../resources/js/backtotop.js"></script>
+
   </body>
 </html>

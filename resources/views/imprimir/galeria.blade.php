@@ -118,30 +118,31 @@
                     @endif
                     
                     
-                    
+                
                         <div class="card-body">
                             <h5 class=" 
                                 @if($mujer["codArea"]=="2" || $mujer["codArea"]=="8") colorLetra
 
-                                @endif card-title">{{$mujer["nombre"]}}</h5>
-
-
-                            <h6 class="
-                                @if($mujer["codArea"]=="2" || $mujer["codArea"]=="8") colorLetra
-
-                                @endif ">Año/Siglo: {{$mujer["fechas"]}}</h6>
-
+                                @endif card-title">{{$mujer["nombre"]}}
+                            </h5>
 
                             <h6 class="
                                 @if($mujer["codArea"]=="2" || $mujer["codArea"]=="8") colorLetra
 
-                                @endif ">Zona: {{$mujer["zona"]}}</h6>
+                                @endif ">Año/Siglo: {{$mujer["fechas"]}}
+                            </h6>
 
+                            <h6 class="
+                                @if($mujer["codArea"]=="2" || $mujer["codArea"]=="8") colorLetra
+
+                                @endif ">Zona: {{$mujer["zona"]}}
+                            </h6>
 
                             <h6 class="
                                 @if($mujer["codArea"]=="2" || $mujer["codArea"]=="8") colorLetra
                             
-                                @endif ">Estudios: {{$mujer["subarea"]}}</h6>
+                                @endif ">Estudios: {{$mujer["subarea"]}}
+                            </h6>
                                 
                             <a class="btn btn-secondary" href="{{$mujer["enlace"]}}" target="_blank">Fuente</a>
                             <a href="{{ url('imprimirInformacion/'.$mujer["codMujer"]) }}" class="btn btn-dark " role="button" aria-pressed="true">Información</a>
