@@ -17,15 +17,15 @@
         <h6 style="display: flex;justify-content: center;align-items: center;color:white">Leyenda</h6>
         <div class="leyenda">
             <div class="row d-flex justify-content-center" style="margin-bottom: 20px;">
-                <div class="cuadrado border-top border-left" style="background-color:#bf8000;">Historia</div>
-                <div class="cuadrado border-top border-left" style="background-color:white;">Derecho</div>
-                <div class="cuadrado border-top border-left" style="background-color:#ff8000;">Antropología</div>
-                <div class="cuadrado border-top border-left" style="background-color:#e30400;">Geografía</div>
-                <div class="cuadrado border-top border-left" style="background-color:#780053;color:white;">Filosofía</div>
-                <div class="cuadrado border-top border-left" style="background-color: #004cb0;">Psicología</div>
-                <div class="cuadrado border-top border-left" style="background-color:#ff6171;">Economía</div>
-                <div class="cuadrado border-top border-left" style="background-color:#ffea00;">Sociología</div>
-                <div class="cuadrado border-top border-left" style="background-color:#1aab00;">Pedagogía</div>
+                <div class="circulo border-top border-left" style="background-color:#bf8000;">Historia</div>
+                <div class="circulo border-top border-left" style="background-color:white;">Derecho</div>
+                <div class="circulo border-top border-left" style="background-color:#ff8000;">Antropología</div>
+                <div class="circulo border-top border-left" style="background-color:#e30400;">Geografía</div>
+                <div class="circulo border-top border-left" style="background-color:#780053;color:white;">Filosofía</div>
+                <div class="circulo border-top border-left" style="background-color: #004cb0;">Psicología</div>
+                <div class="circulo border-top border-left" style="background-color:#ff6171;">Economía</div>
+                <div class="circulo border-top border-left" style="background-color:#ffea00;">Sociología</div>
+                <div class="circulo border-top border-left" style="background-color:#1aab00;">Pedagogía</div>
             </div>
         </div>
 
@@ -37,25 +37,25 @@
         {{-- Carta Pregunta --}}
         {{-- Se le pone fondo --}}
         @if($pregun->mujer->codArea=="1")
-            <div class="historia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="historia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="2")
-            <div class="derecho card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="derecho card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="3")
-            <div class="antropologia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="antropologia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="4")
-            <div class="geografia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="geografia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="5")
-            <div class="filosofia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="filosofia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="6")
-            <div class="psicologia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="psicologia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="7")
-            <div class="economia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="economia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="8")
-            <div class="sociologia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="sociologia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="9")
-        <div class="pedagogia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+        <div class="pedagogia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @endif
-            <div class="cuadrado">
+            <div class="circulo">
             <img class="card-img-top border-left img-thumbnail imaTam" src="{{$pregun->mujer->fotografia}}" alt="Card image cap">
             </div>
             <div class="card-body">
@@ -87,23 +87,23 @@
           {{-- Carta Datos --}}
             {{-- Se le pone fondo --}}
           @if($pregun->mujer->codArea=="1")
-            <div class="historia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="historia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="2")
-            <div class="derecho card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="derecho card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="3")
-            <div class="antropologia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="antropologia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="4")
-            <div class="geografia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="geografia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="5")
-            <div class="filosofia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="filosofia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="6")
-            <div class="psicologia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="psicologia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="7")
-            <div class="economia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="economia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="8")
-            <div class="sociologia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="sociologia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @elseif($pregun->mujer->codArea=="9")
-        <div class="pedagogia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+        <div class="pedagogia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
         @endif
             <div class="card-body">
                 {{-- Se imprimen los datos con una relacion entre tablas --}}

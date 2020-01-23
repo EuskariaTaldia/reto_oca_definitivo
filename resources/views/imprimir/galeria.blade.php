@@ -77,23 +77,23 @@
             {{-- <div class="col-3 columnas">
             
             @if($mujer["codArea"]=="1")
-                <div class="historia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+                <div class="historia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
             @elseif($mujer["codArea"]=="2")
-                <div class="derecho card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+                <div class="derecho card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
             @elseif($mujer["codArea"]=="3")
-                <div class="antropologia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+                <div class="antropologia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
             @elseif($mujer["codArea"]=="4")
-                <div class="geografia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+                <div class="geografia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
             @elseif($mujer["codArea"]=="5")
-                <div class="filosofia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+                <div class="filosofia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
             @elseif($mujer["codArea"]=="6")
-                <div class="psicologia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+                <div class="psicologia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
             @elseif($mujer["codArea"]=="7")
-                <div class="economia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+                <div class="economia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
             @elseif($mujer["codArea"]=="8")
-                <div class="sociologia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+                <div class="sociologia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
             @elseif($mujer["codArea"]=="9")
-            <div class="pedagogia card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;">
+            <div class="pedagogia card text-white bg-dark mb-3 tamañoCarta" style="max-width: 18rem;">
             @endif
 
                 @if($mujer["fotografia"]==null)

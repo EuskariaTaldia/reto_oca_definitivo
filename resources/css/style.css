@@ -532,6 +532,10 @@ body {
     margin-left: 0px;
 }
 
+.letra {
+    color: white;
+}
+
 /* GALERIA */
 .fondoFiltrado {
     background-color: rgba(0, 0, 0, 0.137);
@@ -624,15 +628,83 @@ hr {
     align-items: center;
 }
 
-.spanFecha {
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-top: 0px;
-    padding-left: 0px;
-    border-right-width: 0px;
-    border-top-width: 0px;
-    border-bottom-width: 0px;
-    border-left-width: 0px;
+/* GALERIA DATOS */
+.impFotoMujer {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.fondoInfo {
+    background-image: url(images/fondo2.jpg);
+    background-size: cover;
+    width: 100%;
+}
+
+.mora {
+    background-color: rgba(199, 52, 236, 0.479);
+}
+
+.colorLetr {
+    color: white;
+}
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media print {
+    .impFotoMujer {
+        width: 200px;
+    }
+}
+
+/* PREGUNTAS */
+.sinEspacio {
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.tamañoLetra {
+    font-size: 14px;
+}
+
+.tamañoCarta {
+    width: 250px;
+    height: 450px;
+}
+
+.card {
+    border: 4px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.columnas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imaTam {
+    margin: 50%;
+    width: 100%;
+    height: 110%;
+    border-radius: 50px;
+}
+
+.ancho {
+    width: 100%;
 }
 
 /* TABLA PETICIONES */
@@ -749,8 +821,6 @@ tbody tr {
 @media screen and (min-width: 800px) {
 }
 
-
-
 /* FOOTER */
 .footerBg {
     background-image: url("../../public/images/footer.jpg");
@@ -785,7 +855,8 @@ footer h6:after {
     padding: 10px 15px;
 }
 
-.social .fa:hover, a:hover {
+.social .fa:hover,
+a:hover {
     text-decoration: none;
     color: rgba(182, 0, 167, 0.705) !important;
 }
@@ -805,6 +876,4 @@ footer ul li a {
 }
 
 .colRight {
-
 }
-
