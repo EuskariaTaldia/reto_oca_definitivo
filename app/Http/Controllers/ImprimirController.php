@@ -11,7 +11,8 @@ use App\Area;
 use App\Zona;
 
 class ImprimirController extends Controller  {
-
+    
+    // TODAS las mujeres modo CARTA  
     public function getGaleria() {
         $arrayMujeres = Mujer::all();
         // $arrayAreas = Area::all();
@@ -22,23 +23,10 @@ class ImprimirController extends Controller  {
             $usuario = "anonimo";
         }
 
-        return view('imprimir.galeria', compact("usuario", "arrayMujeres"));
-    }
-
-    
-    public function getInformacion($id) {
-        $mujer = Mujer::findOrFail($id);
-        
-        if(Auth::check() ) {
-            $usuario = Auth::user();
-        } else {
-            $usuario = "anonimo";
-        }
-
-        return view('imprimir.informacion',  compact("usuario", "mujer"));
+        return view('imprimir.cartas', compact("usuario", "arrayMujeres"));
     }
     
-
+    // TODAS las pregunatas modo CARTA  
     public function getPreguntas() {
         $arrayPreguntas = Pregunta::all();
 
@@ -51,10 +39,24 @@ class ImprimirController extends Controller  {
         return view('imprimir.preguntas',  compact("usuario", "arrayPreguntas"));
     }
 
-    public function galeriaDatos() {
+     // Informacion de solo UNA mujer
+    public function getInformacionMujer($id) {
+        $mujer = Mujer::findOrFail($id);
+        
+        if(Auth::check() ) {
+            $usuario = Auth::user();
+        } else {
+            $usuario = "anonimo";
+        }
+
+        return view('imprimir.informacion',  compact("usuario", "mujer"));
+    }
+
+    // Informacion de TODAS las mujeres
+    public function getInformacionMujeres() {
         $mujeres = Mujer::all();
         
-        return view('galeriaDatos', ["arraymujeres" => $mujeres]);
+        return view('imprimir.mujeres', ["arraymujeres" => $mujeres]);
     }
 
 

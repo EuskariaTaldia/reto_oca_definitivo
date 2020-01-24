@@ -1,7 +1,5 @@
 <template>
     <div class="container">
-        
-
         <label for="estu">Estudios:</label>
         <select class="form-control " name="estu" id="estu" onchange="filtroEstudios()">
             <option value="0">Sin Filtro</option>
@@ -21,15 +19,15 @@
          <h6 style="display: flex;justify-content: center;align-items: center;color:white">Leyenda</h6>
         <div class="leyenda">
             <div class="row d-flex justify-content-center" style="margin-bottom: 20px;">
-                <div class="cuadrado border-top border-left" style="background-color:#bf8000;">Historia</div>
-                <div class="cuadrado border-top border-left" style="background-color:white;">Derecho</div>
-                <div class="cuadrado border-top border-left" style="background-color:#ff8000;">Antropología</div>
-                <div class="cuadrado border-top border-left" style="background-color:#e30400;">Geografía</div>
-                <div class="cuadrado border-top border-left" style="background-color:#780053;color:white;">Filosofía</div>
-                <div class="cuadrado border-top border-left" style="background-color: #004cb0;">Psicología</div>
-                <div class="cuadrado border-top border-left" style="background-color:#ff6171;">Economía</div>
-                <div class="cuadrado border-top border-left" style="background-color:#ffea00;">Sociología</div>
-                <div class="cuadrado border-top border-left" style="background-color:#1aab00;">Pedagogía</div>
+                <div class="circulo border-top border-left" style="background-color:#bf8000;">Historia</div>
+                <div class="circulo border-top border-left" style="background-color:white;">Derecho</div>
+                <div class="circulo border-top border-left" style="background-color:#ff8000;">Antropología</div>
+                <div class="circulo border-top border-left" style="background-color:#e30400;">Geografía</div>
+                <div class="circulo border-top border-left" style="background-color:#780053;color:white;">Filosofía</div>
+                <div class="circulo border-top border-left" style="background-color: #004cb0;">Psicología</div>
+                <div class="circulo border-top border-left" style="background-color:#ff6171;">Economía</div>
+                <div class="circulo border-top border-left" style="background-color:#ffea00;">Sociología</div>
+                <div class="circulo border-top border-left" style="background-color:#1aab00;">Pedagogía</div>
             </div>
         </div>
         <div class="row">
@@ -45,7 +43,7 @@
                         <h6 class="colorLetra">Zona: {{mujer.zona}}</h6>
                         <h6 class="colorLetra">Estudios: {{mujer.subarea}}</h6>
                          <a class="btn btn-secondary" :href="mujer.enlace">Fuente</a>
-                        <a :href="'informacion/'+mujer.id" class="btn btn-dark" role="button" aria-pressed="true">Información</a>
+                        <a :href="'imprimirInformacionMujer/'+mujer.id" class="btn btn-dark" role="button" aria-pressed="true">Información</a>
                     </div>
                 </div>
 

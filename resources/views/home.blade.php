@@ -69,8 +69,11 @@
                                         <label class="input-group-text">Jugadores</label>
                                     </div>
                 
-                                    <input type="number" class="custom-select inputJugadores" min="1" max="4" value="1" name="jugador" required/>
+                                    <input type="number" class="custom-select inputJugadores" min="1" max="4" value="1" name="jugador" id="jugador" required/>                                    
                                 </div>
+
+                                <p id="mensajeError"></p>
+
                             </div>
                         </div>
 

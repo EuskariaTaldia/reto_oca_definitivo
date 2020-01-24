@@ -12,62 +12,6 @@
 
     <div id="app">
 
-        {{-- FILTRADO --}}
-        <div class="fondoFiltrado">
-        <h2>Filtrado</h2>
-        <div class="row">
-        <div class="form-group col">
-        
-
-        <div class="form-group col">
-            <label for="geo">Geografico:</label>
-            <select class="form-control" id="geo">
-                <option value="SinFiltro">Sin Filtro</option>
-                  <option value="Europa">Europa</option>
-                  <option value="Norteamerica">Norteamérica</option>
-                  <option value="AmericaLatina">América Latina</option>
-                  <option value="Asia">Asia</option>
-                  <option value="Oceania">Oceanía</option>
-                  <option value="Africa">África</option>
-            </select>
-        </div>
-        
-        <div class="form-group col align-self-end">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" style="
-                  padding-right: 0px;
-                  padding-bottom: 0px;
-                  padding-top: 0px;
-                  padding-left: 0px;
-                  border-right-width: 0px;
-                  border-top-width: 0px;
-                  border-bottom-width: 0px;
-                  border-left-width: 0px;">
-                    <select class="custom-select" id="inputGroupSelect01">
-                        <option value="anio" selected>Año</option>
-                        <option value="siglo">Siglo</option>
-                      </select>
-                  </span>
-                </div>
-                <input id="de" type="text" class="form-control" placeholder="Desde">
-                <input id="a" type="text" class="form-control" placeholder="Hasta">
-              </div>
-        </div>
-        </div>
-        <a href="{{ url('galeriaPregun')}}" class="btn btn-light" >Galeria Preguntas</a>
-        <a href="{{ url('galeriaDatos')}}" class="btn btn-light" >Todos Los datos de mujeres</a>
-
-
-        </div>
-        <div class="fondo">
-        
-        {{-- LEYENDA --}}
-       
-    
-
-
-
         {{-- INICIO DE CARTAS --}}
         {{-- <div class="row"> --}}
             

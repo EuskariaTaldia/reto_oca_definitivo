@@ -29,14 +29,15 @@
                     </a>
                     
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{url('/imprimirGaleria')}}">Informacion</a>
+                        <a class="dropdown-item" href="{{url('/imprimirCartas')}}">Cartas</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{url('/imprimirPreguntas')}}">Preguntas</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{url('/imprimirInformacionMujeres')}}">Listado</a>
                     </div>
                 </li>
 
         
-
                 {{-- Esto solo tiene que aparecer cuando esta logeado --}}
                 @if(Auth::check())
                     <li class="nav-item {{ Request::is('peticion/crear') ? 'active' : ''}}">

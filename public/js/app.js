@@ -37510,7 +37510,7 @@ var staticRenderFns = [
           _c(
             "div",
             {
-              staticClass: "cuadrado border-top border-left",
+              staticClass: "circulo border-top border-left",
               staticStyle: { "background-color": "#bf8000" }
             },
             [_vm._v("Historia")]
@@ -37519,7 +37519,7 @@ var staticRenderFns = [
           _c(
             "div",
             {
-              staticClass: "cuadrado border-top border-left",
+              staticClass: "circulo border-top border-left",
               staticStyle: { "background-color": "white" }
             },
             [_vm._v("Derecho")]
@@ -37528,7 +37528,7 @@ var staticRenderFns = [
           _c(
             "div",
             {
-              staticClass: "cuadrado border-top border-left",
+              staticClass: "circulo border-top border-left",
               staticStyle: { "background-color": "#ff8000" }
             },
             [_vm._v("Antropología")]
@@ -37537,7 +37537,7 @@ var staticRenderFns = [
           _c(
             "div",
             {
-              staticClass: "cuadrado border-top border-left",
+              staticClass: "circulo border-top border-left",
               staticStyle: { "background-color": "#e30400" }
             },
             [_vm._v("Geografía")]
@@ -37546,7 +37546,7 @@ var staticRenderFns = [
           _c(
             "div",
             {
-              staticClass: "cuadrado border-top border-left",
+              staticClass: "circulo border-top border-left",
               staticStyle: { "background-color": "#780053", color: "white" }
             },
             [_vm._v("Filosofía")]
@@ -37555,7 +37555,7 @@ var staticRenderFns = [
           _c(
             "div",
             {
-              staticClass: "cuadrado border-top border-left",
+              staticClass: "circulo border-top border-left",
               staticStyle: { "background-color": "#004cb0" }
             },
             [_vm._v("Psicología")]
@@ -37564,7 +37564,7 @@ var staticRenderFns = [
           _c(
             "div",
             {
-              staticClass: "cuadrado border-top border-left",
+              staticClass: "circulo border-top border-left",
               staticStyle: { "background-color": "#ff6171" }
             },
             [_vm._v("Economía")]
@@ -37573,7 +37573,7 @@ var staticRenderFns = [
           _c(
             "div",
             {
-              staticClass: "cuadrado border-top border-left",
+              staticClass: "circulo border-top border-left",
               staticStyle: { "background-color": "#ffea00" }
             },
             [_vm._v("Sociología")]
@@ -37582,7 +37582,7 @@ var staticRenderFns = [
           _c(
             "div",
             {
-              staticClass: "cuadrado border-top border-left",
+              staticClass: "circulo border-top border-left",
               staticStyle: { "background-color": "#1aab00" }
             },
             [_vm._v("Pedagogía")]
