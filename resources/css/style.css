@@ -488,11 +488,7 @@ body {
     grid-template-columns: auto auto;
     grid-gap: 10px; /*grind-colum-gap*/
 }
-<<<<<<< HEAD
 [id*=ficha]{
-=======
-.ficha {
->>>>>>> 343138ee0fd5d2c6e6dda1baee4e830033f8c498
     width: 10px;
 }
 .sidecontenedor {
@@ -515,13 +511,8 @@ body {
     margin-left: 0px !important;
 }
 
-<<<<<<< HEAD
 .tabla div{
     background-color: white;
-=======
-.tabla div {
-    background-color: red;
->>>>>>> 343138ee0fd5d2c6e6dda1baee4e830033f8c498
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;

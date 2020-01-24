@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-var mapArray=[
-    [21,20,19,18,17,16,15,14],
-    [22,43,42,41,40,39,38,13],
-    [23,44,57,56,55,54,37,12],
-    [24,45,58,63,62,53,36,11],
-    [25,46,59,60,61,52,35,10],
-    [26,47,48,49,50,51,34,9],
-    [27,28,29,30,31,32,33,8],
-    [0,1,2,3,4,5,6,7]
-    
-=======
 
 var mapArray = [
     [21, 20, 19, 18, 17, 16, 15, 14],
@@ -20,7 +8,6 @@ var mapArray = [
     [26, 47, 48, 49, 50, 51,34,9],
     [27, 28, 29, 30, 31, 32,33,8],
     [0, 1, 2, 3, 4, 5, 6, 7]
->>>>>>> 343138ee0fd5d2c6e6dda1baee4e830033f8c498
 ];
 
 var jugadores = [];
@@ -57,15 +44,7 @@ function jugar() {
             console.log("gola");
             $(".tabla").append('<div id="' + mapArray[i][j] + '">' + mapArray[i][j] + '</div>');
             for(var k=1;k<= jokalariKopurua;k++){
-<<<<<<< HEAD
                 $('#'+mapArray[i][j]+'').append('<img id="ficha_'+mapArray[i][j]+'_'+k+'" src="../public/images/ficha'+this.coloresJuga[k-1]+'.png" style="display: none">')
-=======
-                $('#'+mapArray[i][j]+'').append('<img class="ficha" src="../public/images/tablero/ficha'+this.coloresJuga[k-1]+'.png">')
-            }        
-        
-        }       
-    }
->>>>>>> 343138ee0fd5d2c6e6dda1baee4e830033f8c498
     
             }
             }
