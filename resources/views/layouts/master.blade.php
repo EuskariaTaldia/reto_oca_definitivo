@@ -22,7 +22,7 @@
     @include('partials.navbar')
 
     {{-- INCLUIMOS UN CONTAINER QUE CADA PAGINA TENDRÁ SU CONTENIDO --}}
-    <div class="container dataContainer">
+    <div class="container dataContainer backgroundImg">
       @yield('content')
     </div>
 

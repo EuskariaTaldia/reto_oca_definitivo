@@ -3,10 +3,14 @@ window.addEventListener("load", iniciar);
 function iniciar() {
     var btnJugar = document.getElementById("btnJugar");
     var enviarPeticion = document.getElementById("enviarPeticion");
+    var btnLogin =  document.getElementById("btnLogin");
+    var btnRegistro =  document.getElementById("btnRegistro");
 
-    if(btnJugar != null) document.getElementById("btnJugar").addEventListener('click', validarJuego, false);
-    if(enviarPeticion != null) document.getElementById("enviarPeticion").addEventListener('click', validarPeticion, false);
-
+    // Comoprobamos que es lo que estamos validando
+    if(btnJugar != null) btnJugar.addEventListener('click', validarJuego, false);
+    //if(enviarPeticion != null) enviarPeticion.addEventListener('click', validarPeticion, false);
+    if(btnLogin != null) btnLogin.addEventListener('click', validarLogin, false);
+    if(btnRegistro != null) btnRegistro.addEventListener('click', validarRegistro, false);
 }
 
 // FUncion que usamos en el HOME
@@ -160,7 +164,6 @@ function validaInformacion() {
 }
 
 
-
 // Funciones para el LOGIN y el REGISTRO
 function validaUsuario() {
     var elemento = document.getElementById("usuario");
@@ -185,7 +188,7 @@ function validaCorreo() {
     var elemento = document.getElementById("correo");
     if (!elemento.checkValidity()) {
         if (elemento.validity.valueMissing) {
-            error(elemento, "Emaila jarri behar duzu.")
+            error(elemento, "Tienes que poner ")
         }
 
         if (elemento.validity.patternMismatch) {
@@ -249,13 +252,15 @@ function error(elemento, mensaje) {
 
 function borrarError() {
     var formulario = document.forms[0];
+    alert(formulario.elements.length);
     for (var i = 0; i < formulario.elements.length; i++) {
-        formulario.elements[i].className = "";
+        formulario.elements[i].classList.remove("error");
+
     }
 }
 
 
-// Validaciones para el tablero
+// Validaciones para el TABLERO
 function validarJuego(e) {
     borrarError();
     if (validaJugadores()) {
@@ -266,7 +271,7 @@ function validarJuego(e) {
     }
 }
 
-// Validaciones para las peticiones
+// Validaciones para las PETICIONES
 function validarPeticion(e) {
     borrarError();
     if (validaNombreCompleto() && validaFechas() && validaSubArea() && validaPais() && validaUrl() && validInformacion() && confirm("Pulsa aceptar si deseas enviar el formulario")) {
@@ -276,9 +281,24 @@ function validarPeticion(e) {
         return false;
     }
 }
-function validar(e) {
+
+
+// Validaciones para el LOGIN
+function validarLogin(e) {
     borrarError();
-    if (validaNombre() && validaApellido() && validaUsuario() && validaCorreo() && validaContraseña() && confirm("Pulsa aceptar si deseas enviar el formulario")) {
+    if (validaCorreo()) {
+        return true
+    } else {
+        e.preventDefault();
+        return false;
+    }
+}
+
+
+// Validaciones para el REGISTRO
+function validarRegistro(e) {
+    borrarError();
+    if (validaNombre() && validaCorreo() && validaContraseña()) {
         return true
     } else {
         e.preventDefault();

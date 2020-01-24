@@ -51,7 +51,7 @@
 
                     <div class="flexBtn">
                         <button type="reset" class="btn btn-dark logBtn"> BORRAR </button>                               
-                        <button type="submit" class="btn btn-dark logBtn"> ENTRAR </button>    
+                        <button type="submit" class="btn btn-dark logBtn" id="btnLogin"> ENTRAR </button>    
                     </div>      
                 </form>
             </div>
@@ -89,7 +89,7 @@
                     
                     <div class="flexBtn">
                         <button type="reset" class="btn btn-dark logBtn"> BORRAR </button>                               
-                        <button type="submit" class="btn btn-dark logBtn"> ENTRAR </button>    
+                        <button type="submit" class="btn btn-dark logBtn" id="btnRegistro"> ENTRAR </button>    
                     </div>                                    
                 </form>
             </div>

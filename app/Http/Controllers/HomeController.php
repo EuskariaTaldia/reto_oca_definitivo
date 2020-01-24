@@ -36,8 +36,13 @@ class HomeController extends Controller
             
         return view('home', compact("usuario", "arrayAreas", "arrayZonas"));
     }
+    
 
     public function getWelcome() {
         return view('welcome');
+    }
+
+    public function getLogin() {
+        return view('myLogin');
     }
 }

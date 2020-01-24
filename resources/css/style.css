@@ -1,7 +1,7 @@
 .dataContainer {
     max-width: 100%;
+    height: 100%;
     padding: 0;
-    padding-bottom: 10%;
 }
 
 
@@ -111,6 +111,8 @@ a {
 
 #myModal {
     position: relative;
+    padding-top: 6%;
+    height: 100%;
 }
 
 .myForm {
@@ -325,7 +327,7 @@ body {
 
 .login-reg-panel {
     position: relative;
-    top: 50%;
+    top: 5%;
     transform: translateY(+20%);
     text-align: center;
     width: 70%;
@@ -370,7 +372,7 @@ body {
 
 .login-info-box {
     width: 30%;
-    padding: 0 20px;
+    padding: 0 40px;
     top: 20%;
     left: 0;
     position: absolute;
@@ -836,7 +838,6 @@ tbody tr {
     background-image: url("../../public/images/footer.jpg");
     position: relative;
     background-size: cover;
-    z-index: 1;
 }
 
 .leftPart {
@@ -859,7 +860,7 @@ footer h6:after {
     bottom: -20px;
 }
 
-.social .fa {
+.social .fa {   
     color: black;
     font-size: 30px;
     padding: 10px 15px;
