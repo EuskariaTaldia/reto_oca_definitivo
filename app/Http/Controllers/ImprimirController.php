@@ -56,9 +56,9 @@ class ImprimirController extends Controller  {
         return view('imprimir.mujeres', ["arraymujeres" => $mujeres]);
     }
 
-
     // TABLERO DE LA OCA
-    public function getTablero(Request $request) {        
+    public function getTablero(Request $request) {       
+         
         if(Auth::check() ) {
             $usuario = Auth::user();
         } else {
@@ -70,7 +70,7 @@ class ImprimirController extends Controller  {
         } else {
             $especificacion = "null";
         }
-
+        $mujeres = Mujer::all();
         $gameType = $request->input('gameType');
         $filtro = $request->filtro;
         $especificacion = $request->especificacion;

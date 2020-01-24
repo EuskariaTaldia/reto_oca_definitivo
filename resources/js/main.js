@@ -38,13 +38,12 @@ function jugar() {
     var tipoJuego = document.getElementById("tipoJuego").value;
     var especificacion = document.getElementById("especificacion").value;
     var jokalariKopurua = document.getElementById("jugador").value;
-
     for(var i=0;i<8;i++){
         for(var j=0;j<8;j++){        
             console.log("gola");
             $(".tabla").append('<div id="' + mapArray[i][j] + '">' + mapArray[i][j] + '</div>');
             for(var k=1;k<= jokalariKopurua;k++){
-                $('#'+mapArray[i][j]+'').append('<img id="ficha_'+mapArray[i][j]+'_'+k+'" src="../public/images/ficha'+this.coloresJuga[k-1]+'.png" style="display: none">')
+                $('#'+mapArray[i][j]+'').append('<img id="ficha_'+mapArray[i][j]+'_'+k+'" src="../public/images/tablero/ficha'+this.coloresJuga[k-1]+'.png" style="display: none">')
     
             }
             }
