@@ -325,7 +325,7 @@ function cambiarColores(jugador){
 function cambiosPantalla(jugador,numJuga){
 alert("entramos canbios pantalla")
 alert("el jugador es " +jugador)
- //datos de tirada y canbios realizados
+ //datos de tirada y canbios realizadoshola go 
  jugador=parseInt(jugador, 10)+1;
  //dependiendo del numero de jugadores buelbe al comienzo
 if(jugador>parseInt(numJuga,10)){

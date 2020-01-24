@@ -41,7 +41,6 @@
           <div class="fotoMujer"></div>
         <div class="textoMujer"></div>
         <p>This is some text.</p>
-        <p>{{$mujeres->id}}</p>          
 
       </div>
       
