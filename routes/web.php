@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-    
+    use App\Http\Middleware\CheckAdmin;
+
     Auth::routes();
 
     // Ruta del inicio
@@ -30,45 +31,57 @@
 
 
     // Rutas para imprimir cartas
-    Route::get('/imprimirGaleria', 'ImprimirController@getGaleria');
-    Route::get('/imprimirInformacion/{codMujer}', 'ImprimirController@getInformacion');
+    Route::get('/imprimirCartas', 'ImprimirController@getGaleria');
     Route::get('/imprimirPreguntas', 'ImprimirController@getPreguntas');
+
+
+    // Rutas para imprimir la informacion
+    Route::get('/imprimirInformacionMujer/{codMujer}', 'ImprimirController@getInformacionMujer');
+    Route::get('/imprimirInformacionMujeres', 'ImprimirController@getInformacionMujeres');
+
+    
+    // Ruta para imprimir el tablero
     Route::post('/imprimirTablero', 'ImprimirController@getTablero');
 
 
-    // SOLAMENTE PARA LAS PRUEBAS
+    // PRUEBAS
     Route::get('/crearPeticion', 'PeticionController@getFormulario')->name('crearPeticion');
     Route::post('/crearPeticion', 'PeticionController@guardar');
 
     Route::get('/tablaPeticiones', 'PeticionController@getTabla');
 
-
     // Solo cuando estas identificado tiene que aparecer estas rutas
+    /*
+    
     Route::group(['middleware ' => 'auth'], function () {   
+        Route::get('/crearPeticion', 'PeticionController@getFormulario')->name('crearPeticion');
+        Route::post('/crearPeticion', 'PeticionController@guardar');
 
-        // Route::GET('/crearPeticion', function(){
-        //     // Comprobamos si el usuario esta logeado
-        //     if(Auth::check()){
-        //         return redirect()->to('login');
-        //         // return redirect()->action('PeticionController@getFormulario');
-        //         // Route::get('/crearPeticion', 'PeticionController@getFormulario');
+        Route::get('/tablaPeticiones', 'PeticionController@getTabla')->middleware('is_admin');
 
-        //     } else {
-        //         return view('myLogin');
-        //     }
-        // });
 
-        // Route::GET('/tablaPeticiones', function(){
-        //     // Comprobamos si el usuario esta logeado como ADMIN
-        //     if(Auth::check()){
-        //         return redirect()->route('login');
-                
-        //     } else {
-        //         return view('myLogin');
-        //     }
-        // });
+        Route::GET('/crearPeticion', function(){
+            // Comprobamos si el usuario esta logeado
+            if(Auth::check()){
+                return redirect()->route('login');
+            } else {
+                return view('myLogin');
+            }
+        });
+
+        Route::GET('/tablaPeticiones', function(){
+            // Comprobamos si el usuario esta logeado como ADMIN
+            if(Auth::check()){
+                return redirect()->route('login');
+            } else {
+                return view('myLogin');
+            }
+        });        
 
 
     });
+    
+    */
 
 ?>
+

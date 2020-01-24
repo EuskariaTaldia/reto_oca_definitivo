@@ -17,7 +17,11 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+<<<<<<< HEAD
         // $this->middleware('auth');
+=======
+        //$this->middleware('auth');
+>>>>>>> 343138ee0fd5d2c6e6dda1baee4e830033f8c498
     }
 
     /**
@@ -25,9 +29,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+<<<<<<< HEAD
     public function getIndex()
     {
         // auth()->user()->name;
+=======
+    public function getIndex() {
+>>>>>>> 343138ee0fd5d2c6e6dda1baee4e830033f8c498
         if(Auth::check() ) {
             $usuario = Auth::user()->name;
         } else{
@@ -39,5 +47,4 @@ class HomeController extends Controller
       
         return view('home', compact("usuario", "arrayZonas", "arrayAreas"));
     }
-
 }

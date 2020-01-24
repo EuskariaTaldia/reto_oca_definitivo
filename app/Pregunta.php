@@ -9,13 +9,15 @@ class Pregunta extends Model
     // Nombre tabla
     protected $table = 'preguntas';
 
-    // Primay key de la tabla
-    protected $primaryKey = 'codPregun';
+    // Primary key de la tabla
+    protected $primaryKey = 'codPregunta';
+
+    protected $foreignKey = "codMujer";
 
 
     // Relaciones
     public function mujer() {
-        return $this->hasOne('App\Mujer');
+        return $this->hasOne('App\Mujer', 'id' , 'codMujer');
     }
 
 }

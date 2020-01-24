@@ -1,16 +1,15 @@
 @extends('layouts.master')
 
 @section('content')
-  {{-- <script src="../resources/js/main.js"></script> --}}
 
   {{-- VALORES RECOGIDOS POR EL FORMULARIO --}}
     <input type="hidden" id="tipoJuego" name="tipoJuego" value="{{$gameType}}">
     <input type="hidden" id="especificacion" name="especificacion" value="{{$especificacion}}">
     <input type="hidden" id="jugador" name="jugador" value="{{$jugador}}">
   {{-- -------------------------------------------------------------------------------------------  --}}
+  
 
-
-    {{-- MODAL PERDIDA DE TURNO --}}
+  {{-- MODAL PERDIDA DE TURNO --}}
   <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -20,7 +19,7 @@
         </div>
 
         <div class="modal-body">
-          <h2>as perdido el turno</h2>
+          <h2>Has perdido el turno</h2>
             <!-- content goes here -->
         </div>
 
@@ -44,12 +43,12 @@
 
       </div>
       
-      <div class="container tablero">            
+      <div class="container tablero" id="tablero">            
           
         <h2 id="tiro" style="clear:left;"></h2>
         <h2 id="turno" style="clear:left;"></h2>
         
-        <div class="tabla"></div>
+        <div class="tabla" id="tabla"></div>
         <nav class="fixed-bottom ">
           <div id="die1" class="dice"></div>
           <button onclick="onclikar()">Tira el Dado</button>
