@@ -503,7 +503,10 @@ body {
     margin-right: 0px !important;
     margin-left: 0px !important;
 }
-
+.modal-backdrop {
+    z-index: -1;
+  }
+  
 .tablero {
     padding-right: 0px;
     padding-left: 0px;

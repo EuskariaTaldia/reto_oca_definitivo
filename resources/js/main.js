@@ -177,7 +177,8 @@ function tiradaRealizada(jugador,TiradaActual){
                     break;
                  case 19:
                     alert("!posada")
-                        //metodo
+                        //metod
+                        console.log("ja me se tu contraseña")
                         encontrado=true;
                         caerPosada(jugador,TiradaActual);
                     break;
@@ -293,17 +294,22 @@ function caerCalavera(jugador,TiradaActual){
     cambiarColores(jugador);
 }
 function caerPosada(jugador,TiradaActual){
+    console.log(jugador+"a caido en el posada")
+
     //se piederde un turno
     //CASILLA 19
     //sancionamos la caida en la posada
+    alert("estoy en la posada");
     TiradaSancionada[jugador]=1;
+    console.log("sancion"+ TiradaSancionada)
     alert("la sancion se canbio a"+TiradaSancionada)
     //damos el valor al movimieno
     jugadores[jugador][1]=TiradaActual;
     cambiarColores(jugador);
-
 }
 function caerPozo(jugador,TiradaActual){
+    console.log(jugador+"a caido en el pozo")
+
     //no juegas asta que otro jugador pase por esa casilla
     //si solo juega un jugador esta casilla se considerara una casilla normal
     TiradaSancionada[jugador]=2;
@@ -314,6 +320,8 @@ function caerPozo(jugador,TiradaActual){
 }
 
 function amaitu(jugador,TiradaActual){
+    console.log(jugador+"a caido en el amaitu")
+
     //al jugador se le acaban los turnos
     TiradaSancionada[jugador]=3;
     //damos el valor al movimieno
@@ -341,8 +349,7 @@ function cambiarColores(jugador){
 
 }
 function cambiosPantalla(jugador,numJuga){
-alert("entramos canbios pantalla")
-alert("el jugador es " +jugador)
+alert("entramos canbios pantallael jugador es " +jugador)
  //datos de tirada y canbios realizadoshola go 
  jugador=parseInt(jugador, 10)+1;
  //dependiendo del numero de jugadores buelbe al comienzo
@@ -360,12 +367,11 @@ if(jugador>parseInt(numJuga,10)){
  //alert("aver que pasa: "+sanciones[variable])
  
  Sanc = TiradaSancionada[variable];
- alert( TiradaSancionada[variable] +"es sancion?")
+ alert( TiradaSancionada[variable] +"es sancion?")  
 if(parseInt(Sanc,10)!=0){  
      alert("si")
-     funcionSancion(jugador,Sanca)
+     console.log(TiradaSancionada)
      $('#squarespaceModal').modal('show'); 
-     jugador++
     }
     else{
      alert("no")
