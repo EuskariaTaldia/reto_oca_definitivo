@@ -44,25 +44,14 @@
     Route::post('/imprimirTablero', 'ImprimirController@getTablero');
      
 
-    //PRUEBAS
-    Route::get('/crearPeticion', 'PeticionController@getFormulario');
-    Route::post('/crearPeticion', 'PeticionController@guardar');
-    Route::get('/tablaPeticiones', 'PeticionController@getTabla')->middleware('is_admin');
-
     Route::group(['middleware ' => 'auth'], function () {   
 
-        // if(Auth::check()){
-        //     echo "eey";
-        //     Route::get('/crearPeticion', 'PeticionController@getFormulario');
-        //     Route::post('/crearPeticion', 'PeticionController@guardar');
+        if(Auth::check()){  
+            Route::get('/crearPeticion', 'PeticionController@getFormulario');
+            Route::post('/crearPeticion', 'PeticionController@guardar');
 
-        //     Route::get('/tablaPeticiones', 'PeticionController@getTabla')->middleware('is_admin');
-
-        // } else {
-        //     echo "else";
-        //     // return view('myLogin');
-        //     Route::get('/login', 'Auth\LoginController@loginForm')->name('login');
-        // }
+            Route::get('/tablaPeticiones', 'PeticionController@getTabla')->middleware('is_admin');
+        } 
 
     });
     

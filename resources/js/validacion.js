@@ -5,15 +5,20 @@ function iniciar() {
     var enviarPeticion = document.getElementById("enviarPeticion");
     var btnLogin =  document.getElementById("btnLogin");
     var btnRegistro =  document.getElementById("btnRegistro");
+    var btnReset =  document.getElementById("reset");
+
 
     // Comoprobamos que es lo que estamos validando
     if(btnJugar != null) btnJugar.addEventListener('click', validarJuego, false);
     //if(enviarPeticion != null) enviarPeticion.addEventListener('click', validarPeticion, false);
     if(btnLogin != null) btnLogin.addEventListener('click', validarLogin, false);
     if(btnRegistro != null) btnRegistro.addEventListener('click', validarRegistro, false);
+    if(btnReset != null) btnReset.addEventListener('click', borrarError, false);
+
 }
 
-// FUncion que usamos en el HOME
+
+// Funcion que usamos en el HOME
 function validaJugadores() {
     var elemento = document.getElementById("jugador");
     if (!elemento.checkValidity()) {
@@ -26,11 +31,11 @@ function validaJugadores() {
     return true;
 }
 
-// Funciones que usaremos en la PETICION
-//validaNombreCompleto() && validaFechas() && validaSubArea() && validaPais() && validaUrl() && validaInformacion()
 
+// Funciones que usaremos en la PETICION
 function validaNombreCompleto() {
     var elemento = document.getElementById("nombreApellido");
+
     if (!elemento.checkValidity()) {
         if (elemento.validity.valueMissing) {
             error(elemento, "Tienes que escribir un nombre.");
@@ -51,8 +56,10 @@ function validaNombreCompleto() {
     return true;
 }
 
+
 function validaFechas() {
     var elemento = document.getElementById("fecha");
+
     if (!elemento.checkValidity()) {
         if (elemento.validity.patternMismatch) {
             error(elemento, "Fecha incorrecta.");
@@ -69,8 +76,10 @@ function validaFechas() {
     return true;
 }
 
+
 function validaSubArea() {
     var elemento = document.getElementById("subArea");
+
     if (!elemento.checkValidity()) {
         if (elemento.validity.patternMismatch) {
             error(elemento, "La subarea no puede contener números.");
@@ -87,8 +96,10 @@ function validaSubArea() {
     return true;
 }
 
+
 function validaPais() {
     var elemento = document.getElementById("pais");
+
     if (!elemento.checkValidity()) {
         if (elemento.validity.patternMismatch) {
             error(elemento, "El país no puede ser numérico.");
@@ -104,6 +115,7 @@ function validaPais() {
     }
     return true;
 }
+
 
 function validaUrl() {
     var elemento = document.getElementById("foto");
@@ -145,8 +157,10 @@ function validaUrl() {
     return true;
 }
 
+
 function validaInformacion() {
     var elemento = document.getElementById("informacion");
+
     if (!elemento.checkValidity()) {
         if (elemento.validity.patternMismatch) {
             error(elemento, "Caracteres incorrectos.");
@@ -164,39 +178,24 @@ function validaInformacion() {
 }
 
 
-// Funciones para el LOGIN y el REGISTRO
-function validaUsuario() {
-    var elemento = document.getElementById("usuario");
-    if (!elemento.checkValidity()) {
-        if (elemento.validity.valueMissing) {
-            error(elemento, "Erabiltzaile izena jarri behar duzu.");
-            return false;
-        }
-
-        if (elemento.value.length < 5) {
-            error(elemento, "Erabiltzaile luzeera 5-20 artean egon behar da.");
-            return false;
-        }
-
-        return false;
-    }
-
-    return true;
-}
-
+// Funciones para el REGISTRO
 function validaCorreo() {
-    var elemento = document.getElementById("correo");
+    var elemento = document.getElementById("email");
+
     if (!elemento.checkValidity()) {
         if (elemento.validity.valueMissing) {
-            error(elemento, "Tienes que poner ")
+            error(elemento, "Tienes que poner un correo electronico");
+            return false;
         }
 
         if (elemento.validity.patternMismatch) {
-            error(elemento, "Ezin da horrelako emaila izan, example: -------@----.---");
+            alert("pattern");
+            error(elemento, "Tiene que ser un correo electronico, ej: ejemplo@gmail.com");
+            return false;
         }
-
-        if (elemento.value.length < 10) {
-            error(elemento, "Emailaren luzeera 10-50 artean egon behar da.");
+        
+        if (elemento.value.length < 10 ||elemento.value.length > 30) {
+            error(elemento, "La contraseña tiene que contener entre 8-30 caracteres");
             return false;
         }
 
@@ -205,30 +204,60 @@ function validaCorreo() {
     return true;
 }
 
-function validaContraseña() {
-    var elemento = document.getElementById("contraseña");
-    var elemento2 = document.getElementById("contraseña2");
+function validaNombre(){
+    var elemento = document.getElementById("name");
 
     if (!elemento.checkValidity()) {
         if (elemento.validity.valueMissing) {
-            error(elemento, "Pasahitza jarri behar duzu.")
+            error(elemento, "Tienes que escribir un nombre.")
+            return false;
         }
 
-        if (elemento.value.length < 10) {
-            error(elemento, "Pasahitzaren luzeera 10-50 artean egon behar da.");
+        if (elemento.validity.patternMismatch) {
+            error(elemento, "No puede contener numeros");
+            return false;
+        }
+
+
+        if (elemento.value.length < 8) {
+            error(elemento, "La contraseña tiene que ser mayor que 8");
             return false;
         }
 
         return false;
     }
 
-    if (!elemento2.checkValidity()) {
-        if (elemento2.validity.valueMissing) {
-            error(elemento, "Pasahitza jarri behar duzu.")
+    return true;
+}
+
+
+function validaContraseñaRegistro() {
+    var elemento = document.getElementById("password");
+    var elemento2 = document.getElementById("password-confirm");
+
+    if (!elemento.checkValidity()) {
+        if (elemento.validity.valueMissing) {
+            error(elemento, "Tienes que escribir una contraseña.")
+            return false;
         }
 
-        if (elemento.value.length < 10) {
-            error(elemento, "Pasahitzaren luzeera 10-50 artean egon behar da.");
+        if (elemento.value.length < 8) {
+            error(elemento, "La contraseña tiene que ser mayor que 8");
+            return false;
+        }
+
+        return false;
+    }
+
+    
+    if (!elemento2.checkValidity()) {
+        if (elemento2.validity.valueMissing) {
+            error(elemento2, "Tienes que escribir una confirmacion de contraseña.")
+            return false;
+        }
+
+        if (elemento2.value.length < 10) {
+            error(elemento2, "La contraseña tiene que ser mayor que 8");
             return false;
         }
 
@@ -236,7 +265,7 @@ function validaContraseña() {
     }
 
     if(elemento.value != elemento2.value){
-        error(elemento2, "Pasahiitzak ez dira berdinak!");
+        error(elemento2, "Las contraseñas no coinciden!");
         return false;
     }
     
@@ -244,19 +273,75 @@ function validaContraseña() {
 }
 
 
+// Funciones para el LOGIN
+function validaContraseñaLogin() {
+    var elemento = document.getElementById("passwordLogin");
+
+    if (!elemento.checkValidity()) {
+        if (elemento.validity.valueMissing) {
+            error(elemento, "Tienes que escribir una contraseña.")
+            return false;
+        }
+
+        if (elemento.value.length < 8) {
+            error(elemento, "La contraseña tiene que ser mayor que 8");
+            return false;
+        }
+
+        return false;
+    }
+
+    return true;
+}
+
+
+function validaCorreoLogin() {
+    var elemento = document.getElementById("emailLogin");
+
+    if (!elemento.checkValidity()) {
+        if (elemento.validity.valueMissing) {
+            error(elemento, "Tienes que poner un correo electronico");
+            return false;
+        }
+
+        if (elemento.validity.patternMismatch) {
+            alert("pattern");
+            error(elemento, "Tiene que ser un correo electronico, ej: ejemplo@gmail.com");
+            return false;
+        }
+        
+        if (elemento.value.length < 10 ||elemento.value.length > 30) {
+            error(elemento, "La contraseña tiene que contener entre 8-30 caracteres");
+            return false;
+        }
+
+        return false;
+    }
+    return true;
+}
+
+
 function error(elemento, mensaje) {
-    document.getElementById("mensajeError").innerHTML ="** " + mensaje + " **";
+    document.getElementById("mensajeError").innerHTML ="* " + mensaje;
+    alert(mensaje);
+
     elemento.className += " error";
     elemento.focus();
 }
 
-function borrarError() {
-    var formulario = document.forms[0];
-    alert(formulario.elements.length);
-    for (var i = 0; i < formulario.elements.length; i++) {
-        formulario.elements[i].classList.remove("error");
 
+function borrarError() {
+    // var logForm = document.querySelectorAll("input[type='email']");
+    const logForm = document.querySelectorAll('input');
+
+    for (var i = 0; i < logForm.length; i++) {
+        // formulario.elements[i].classList.remove("error");
+        //alert(logForm[i].className);
+
+        logForm[i].className = "";
     }
+
+    // document.getElementById("mensajeError").innerHTML ="";
 }
 
 
@@ -270,6 +355,7 @@ function validarJuego(e) {
         return false;
     }
 }
+
 
 // Validaciones para las PETICIONES
 function validarPeticion(e) {
@@ -286,7 +372,7 @@ function validarPeticion(e) {
 // Validaciones para el LOGIN
 function validarLogin(e) {
     borrarError();
-    if (validaCorreo()) {
+    if (validaCorreoLogin() && validaContraseñaLogin()) {
         return true
     } else {
         e.preventDefault();
@@ -298,7 +384,7 @@ function validarLogin(e) {
 // Validaciones para el REGISTRO
 function validarRegistro(e) {
     borrarError();
-    if (validaNombre() && validaCorreo() && validaContraseña()) {
+    if (validaNombre() && validaCorreo() && validaContraseñaRegistro()) {
         return true
     } else {
         e.preventDefault();

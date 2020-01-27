@@ -1967,28 +1967,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    mujeres: {}
+    mujeres: {},
+    mujeresFiltrado: {}
   },
-  mounted: function mounted() {
-    console.log("HOLA ESTU______" + document.getElementById("estu").value);
-  },
+  mounted: function mounted() {},
   data: function data() {
     return {
+      estu: '',
       estilo: ['historia', 'derecho', 'antropologia', 'geografia', 'filosofia', 'psicologia', 'economia', 'sociologia', 'pedagogia']
     };
   },
-  computed: {},
+  computed: {
+    filtroEstudios: function filtroEstudios() {
+      var _this = this;
+
+      if (this.estu !== '') {
+        return this.mujeres.filter(function (mujer) {
+          return mujer.codArea == _this.estu;
+        });
+      } else {
+        return this.mujeres;
+      }
+    }
+  },
   methods: {
     elegirClase: function elegirClase(mujer) {
       console.log(mujer);
       return this.estilo[mujer.codArea - 1];
-    } // filtroEstudios(){
-    //     return this.mujeres.filter((mujer) => mujer.codArea.includes(this.codArea));
-    //     }
-
+    }
   }
 });
 
@@ -37367,7 +37375,55 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("label", { attrs: { for: "estu" } }, [_vm._v("Estudios:")]),
     _vm._v(" "),
-    _vm._m(0),
+    _c(
+      "select",
+      {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.estu,
+            expression: "estu"
+          }
+        ],
+        staticClass: "form-control ",
+        attrs: { name: "estu", id: "estu" },
+        on: {
+          change: function($event) {
+            var $$selectedVal = Array.prototype.filter
+              .call($event.target.options, function(o) {
+                return o.selected
+              })
+              .map(function(o) {
+                var val = "_value" in o ? o._value : o.value
+                return val
+              })
+            _vm.estu = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+          }
+        }
+      },
+      [
+        _c("option", { attrs: { value: "" } }, [_vm._v("Sin Filtro")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "1" } }, [_vm._v("Historia")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "2" } }, [_vm._v("Derecho")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "3" } }, [_vm._v("Antropología")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "4" } }, [_vm._v("Geografía")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "5" } }, [_vm._v("Filosofía")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "6" } }, [_vm._v("Psicología")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "7" } }, [_vm._v("Economía")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "8" } }, [_vm._v("Sociología")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "9" } }, [_vm._v("Pedagogía")])
+      ]
+    ),
     _vm._v(" "),
     _c(
       "h6",
@@ -37382,12 +37438,12 @@ var render = function() {
       [_vm._v("Leyenda")]
     ),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(0),
     _vm._v(" "),
     _c(
       "div",
       { staticClass: "row" },
-      _vm._l(_vm.mujeres, function(mujer) {
+      _vm._l(_vm.filtroEstudios, function(mujer) {
         return _c("div", { key: mujer }, [
           _c(
             "div",
@@ -37411,10 +37467,6 @@ var render = function() {
                   }),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "colorLetra card-title" }, [
-                  _vm._v(_vm._s(mujer.codArea))
-                ]),
-                _vm._v(" "),
                 _c("h5", { staticClass: "colorLetra card-title" }, [
                   _vm._v(_vm._s(mujer.nombre))
                 ]),
@@ -37462,39 +37514,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "select",
-      {
-        staticClass: "form-control ",
-        attrs: { name: "estu", id: "estu", onchange: "filtroEstudios()" }
-      },
-      [
-        _c("option", { attrs: { value: "0" } }, [_vm._v("Sin Filtro")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "1" } }, [_vm._v("Historia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "2" } }, [_vm._v("Derecho")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "3" } }, [_vm._v("Antropología")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "4" } }, [_vm._v("Geografía")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "5" } }, [_vm._v("Filosofía")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "6" } }, [_vm._v("Psicología")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "7" } }, [_vm._v("Economía")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "8" } }, [_vm._v("Sociología")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "9" } }, [_vm._v("Pedagogía")])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
