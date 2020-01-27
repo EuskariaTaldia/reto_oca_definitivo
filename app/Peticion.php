@@ -19,7 +19,6 @@ class Peticion extends Model
     protected $fillable = [
         'codUsu', 'nombreMujer', 'fechas', 'codArea', 'subArea', 'datos', 'enlace',
         'codZona', 'zona', 'fotografia', 
-
     ];
 
     // Relaciones
