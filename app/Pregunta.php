@@ -15,6 +15,7 @@ class Pregunta extends Model
     protected $foreignKey = "codMujer";
 
 
+
     // Relaciones
     public function mujer() {
         return $this->hasOne('App\Mujer', 'id' , 'codMujer');

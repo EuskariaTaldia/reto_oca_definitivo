@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -37,8 +37,13 @@ class HomeController extends Controller
       
         return view('home', compact("usuario", "arrayZonas", "arrayAreas"));
     }
+    
 
     public function getWelcome() {
         return view('welcome');
+    }
+
+    public function getLogin() {
+        return view('myLogin');
     }
 }

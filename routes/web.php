@@ -39,20 +39,11 @@
     Route::get('/imprimirInformacionMujer/{codMujer}', 'ImprimirController@getInformacionMujer');
     Route::get('/imprimirInformacionMujeres', 'ImprimirController@getInformacionMujeres');
 
-    
+
     // Ruta para imprimir el tablero
     Route::post('/imprimirTablero', 'ImprimirController@getTablero');
+     
 
-
-    // PRUEBAS
-    Route::get('/crearPeticion', 'PeticionController@getFormulario')->name('crearPeticion');
-    Route::post('/crearPeticion', 'PeticionController@guardar');
-
-    Route::get('/tablaPeticiones', 'PeticionController@getTabla');
-
-    // Solo cuando estas identificado tiene que aparecer estas rutas
-    /*
-    
     Route::group(['middleware ' => 'auth'], function () {   
         Route::get('/crearPeticion', 'PeticionController@getFormulario')->name('crearPeticion');
         Route::post('/crearPeticion', 'PeticionController@guardar');
@@ -60,28 +51,16 @@
         Route::get('/tablaPeticiones', 'PeticionController@getTabla')->middleware('is_admin');
 
 
-        Route::GET('/crearPeticion', function(){
-            // Comprobamos si el usuario esta logeado
-            if(Auth::check()){
-                return redirect()->route('login');
-            } else {
-                return view('myLogin');
-            }
-        });
+        if(Auth::check()){  
+            Route::get('/crearPeticion', 'PeticionController@getFormulario');
+            Route::post('/crearPeticion', 'PeticionController@guardar');
 
-        Route::GET('/tablaPeticiones', function(){
-            // Comprobamos si el usuario esta logeado como ADMIN
-            if(Auth::check()){
-                return redirect()->route('login');
-            } else {
-                return view('myLogin');
-            }
-        });        
-
+            Route::get('/tablaPeticiones', 'PeticionController@getTabla')->middleware('is_admin');
+        } 
 
     });
     
-    */
+    
 
 ?>
 
