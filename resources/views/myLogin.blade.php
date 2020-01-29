@@ -3,14 +3,14 @@
 @section('content')
     <div class="login-reg-panel">
         <div class="login-info-box">
-            <h2>Tienes una cuenta?</h2>
+            <h3>Tienes una cuenta?</h3>
             <p>Inicia sesion clickando aquí!</p>
             <label id="label-register" for="log-reg-show">Iniciar sesion</label>
             <input type="radio" name="active-log-panel" id="log-reg-show"  checked="checked">
         </div>
                             
         <div class="register-info-box">
-            <h2>¿No tienes una cuenta?</h2>
+            <h3>¿No tienes una cuenta?</h3>
             <p>Registrate en un solo click!</p>
             <label id="label-login" for="log-login-show">Registrarse</label>
             <input type="radio" name="active-log-panel" id="log-login-show">
@@ -19,7 +19,7 @@
         <div class="white-panel">
             {{-- LOGIN --}}
             <div class="login-show">
-                <h2>INICIAR SESION</h2>
+                <h3>INICIAR SESION</h3>
 
                 <form method="POST" action="{{ route('login') }}" class="logForm" id="logForm">
                     @csrf
@@ -62,7 +62,7 @@
             
             {{-- REGISTRO --}}
             <div class="register-show">
-                <h2>CREAR CUENTA</h2>
+                <h3>CREAR CUENTA</h3>
 
                 <form method="POST" action="{{ route('register') }}" class="logForm" id="registerForm">
                     @csrf
@@ -94,7 +94,7 @@
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password" placeholder="Confirmar Contraseña"
                     pattern="[A-Za-zÑñ0-9]{1,20}" minlength="5" maxlength="100" required>
                     
-                    <p id="mensajeError"></p>
+                    <p id="mensajeError2"></p>
 
                     <div class="flexBtn">
                         <button type="reset" class="btn btn-dark logBtn" id="reset"> BORRAR </button>                               

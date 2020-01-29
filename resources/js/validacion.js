@@ -93,6 +93,7 @@ function validaSubArea() {
 
         return false;
     }
+    alert("subarea bien");
     return true;
 }
 
@@ -101,7 +102,10 @@ function validaPais() {
     var elemento = document.getElementById("pais");
 
     if (!elemento.checkValidity()) {
+        alert("pais");
+
         if (elemento.validity.patternMismatch) {
+            alert("error pais");
             error(elemento, "El país no puede ser numérico.");
             return false;
         }
@@ -184,18 +188,18 @@ function validaCorreo() {
 
     if (!elemento.checkValidity()) {
         if (elemento.validity.valueMissing) {
-            error(elemento, "Tienes que poner un correo electronico");
+            errorRegistro(elemento, "Tienes que poner un correo electronico");
             return false;
         }
 
         if (elemento.validity.patternMismatch) {
             alert("pattern");
-            error(elemento, "Tiene que ser un correo electronico, ej: ejemplo@gmail.com");
+            errorRegistro(elemento, "Tiene que ser un correo electronico, ej: ejemplo@gmail.com");
             return false;
         }
         
         if (elemento.value.length < 10 ||elemento.value.length > 30) {
-            error(elemento, "La contraseña tiene que contener entre 8-30 caracteres");
+            errorRegistro(elemento, "La contraseña tiene que contener entre 8-30 caracteres");
             return false;
         }
 
@@ -209,18 +213,18 @@ function validaNombre(){
 
     if (!elemento.checkValidity()) {
         if (elemento.validity.valueMissing) {
-            error(elemento, "Tienes que escribir un nombre.")
+            errorRegistro(elemento, "Tienes que escribir un nombre.")
             return false;
         }
 
         if (elemento.validity.patternMismatch) {
-            error(elemento, "No puede contener numeros");
+            errorRegistro(elemento, "No puede contener numeros");
             return false;
         }
 
 
         if (elemento.value.length < 3) {
-            error(elemento, "El nombre tiene que ser mayor que 8");
+            errorRegistro(elemento, "El nombre tiene que ser mayor que 8");
             return false;
         }
 
@@ -237,12 +241,12 @@ function validaContraseñaRegistro() {
 
     if (!elemento.checkValidity()) {
         if (elemento.validity.valueMissing) {
-            error(elemento, "Tienes que escribir una contraseña.")
+            errorRegistro(elemento, "Tienes que escribir una contraseña.")
             return false;
         }
 
         if (elemento.value.length < 8) {
-            error(elemento, "La contraseña tiene que ser mayor que 8");
+            errorRegistro(elemento, "La contraseña tiene que ser mayor que 8");
             return false;
         }
 
@@ -252,12 +256,12 @@ function validaContraseñaRegistro() {
     
     if (!elemento2.checkValidity()) {
         if (elemento2.validity.valueMissing) {
-            error(elemento2, "Tienes que escribir una confirmacion de contraseña.")
+            errorRegistro(elemento2, "Tienes que escribir una confirmacion de contraseña.")
             return false;
         }
 
         if (elemento2.value.length < 10) {
-            error(elemento2, "La contraseña tiene que ser mayor que 8");
+            errorRegistro(elemento2, "La contraseña tiene que ser mayor que 8");
             return false;
         }
 
@@ -265,7 +269,7 @@ function validaContraseñaRegistro() {
     }
 
     if(elemento.value != elemento2.value){
-        error(elemento2, "Las contraseñas no coinciden!");
+        errorRegistro(elemento2, "Las contraseñas no coinciden!");
         return false;
     }
     
@@ -319,6 +323,13 @@ function validaCorreoLogin() {
     return true;
 }
 
+function errorRegistro(elemento, mensaje) {
+    document.getElementById("mensajeError2").innerHTML ="* " + mensaje;
+    alert("2" + mensaje);
+
+    elemento.className += " error";
+    elemento.focus();
+}
 
 function error(elemento, mensaje) {
     document.getElementById("mensajeError").innerHTML ="* " + mensaje;
@@ -330,17 +341,39 @@ function error(elemento, mensaje) {
 
 
 function borrarError() {
-    // var logForm = document.querySelectorAll("input[type='email']");
-    const logForm = document.querySelectorAll('input');
+    const logForm = document.getElementById("logForm");
+    if(logForm != null){
+        logForm.querySelectorAll('input');
+       
+        for (var i = 0; i < logForm.length; i++) {
+            logForm[i].classList.remove("error");
+        }
+    }
+   
+    
+    const registerForm = document.getElementById("registerForm");
+    if(registerForm != null){
+        registerForm.querySelectorAll('input');
 
-    for (var i = 0; i < logForm.length; i++) {
-        // formulario.elements[i].classList.remove("error");
-        //alert(logForm[i].className);
+        for (var i = 0; i < registerForm.length; i++) {
+            registerForm[i].classList.remove("error");
+        }  
 
-        logForm[i].classList.remove("error");
+        document.getElementById("mensajeError2").innerHTML ="";
+    }
+      
+    
+    const peticionForm = document.getElementById("peticionForm");
+    if(peticionForm != null){
+        peticionForm.querySelectorAll('input');        
+    
+        for (var i = 0; i < peticionForm.length; i++) {
+            peticionForm[i].classList.remove("error");
+        }    
     }
 
     document.getElementById("mensajeError").innerHTML ="";
+
 }
 
 

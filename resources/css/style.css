@@ -1,16 +1,20 @@
 .dataContainer {
     max-width: 100%;
     min-height: 100%;
-    /* height: 100%; */
     position: relative;
     padding: 0;
+    padding-bottom: 2%;
+}
+
+.cartasContainer {
+    max-width: 90%;
 }
 
 .error {
     border-color: red !important;
 }
 
-#mensajeError {
+#mensajeError,#mensajeError2 {
     color: red;
     padding-top: 4%;
 }
@@ -102,6 +106,10 @@ a {
     background-color: rgba(255, 7, 234, 0.226);
 }
 
+.modal-body{
+    margin-top: 2%;
+}
+
 .modal {
     z-index: 0 !important;
 }
@@ -183,9 +191,19 @@ a {
 
 /* sdsdsdsd */
 .get-in-touch {
-    max-width: 800px;
+    max-width: 50%;
     margin: 50px auto;
     position: relative;
+    background-color: rgba(255, 255, 255, 0.171);
+}
+
+.get-in-touch ::placeholder {
+    color: black;
+}
+
+.get-in-touch .row{
+    margin-right: 10%;
+    margin-left: 10%;
 }
 
 .get-in-touch .title {
@@ -222,6 +240,7 @@ a {
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
+    background-color: transparent;
 }
 
 .contact-form .input-text:focus {
@@ -241,7 +260,7 @@ a {
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
-    color: #5543ca;
+    color: white;
     cursor: text;
     transition: -webkit-transform 0.2s ease-in-out;
     transition: transform 0.2s ease-in-out;
@@ -354,7 +373,7 @@ body {
     height: 550px;
     position: absolute;
     top: -50px;
-    width: 50%;
+    width: 40%;
     right: calc(50% - 50px);
     transition: 0.3s ease-in-out;
     z-index: 0;
@@ -552,8 +571,8 @@ body {
 }
 
 /* GALERIA */
-.fondoFiltrado {
-    background-color: rgba(0, 0, 0, 0.137);
+.filtrado {
+    color: white;
 }
 
 .fondo {
@@ -578,7 +597,6 @@ body {
 }
 
 .leyenda {
-    padding: 2%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -589,6 +607,8 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
+    padding-top: 5%;
+    text-transform: uppercase;
 }
 
 .leyenda div:nth-child(odd) {
@@ -601,11 +621,11 @@ body {
 }
 
 hr {
-    border: 1px solid white;
+    border: 3px solid white ;
 }
 
 .cartamujer {
-    width: 200px;
+    width: 250px;
     height: 100%;
 }
 
@@ -613,8 +633,11 @@ hr {
     padding: 2%;
 }
 
+.circuloImg{
+    margin: 5%;
+}
+
 .btnCarta {
-    width: 100%;
     padding-top: 2%;
 }
 
@@ -658,15 +681,13 @@ hr {
     height: 200px;
 }
 
-.colorLetra {
-    color: black;
-}
-
 .columnas {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+
 
 /* GALERIA DATOS */
 .impFotoMujer {
@@ -703,6 +724,8 @@ hr {
     }
 }
 
+
+
 /* PREGUNTAS */
 .sinEspacio {
     display: block;
@@ -732,7 +755,6 @@ hr {
 }
 
 .imaTam {
-    margin: 50%;
     width: 100%;
     height: 110%;
     border-radius: 50px;
@@ -741,6 +763,11 @@ hr {
 .ancho {
     width: 100%;
 }
+
+.card-body{
+    color: black;
+}
+
 
 /* TABLA PETICIONES */
 
