@@ -6,7 +6,6 @@
     padding: 0;
 }
 
-
 .error {
     border-color: red !important;
 }
@@ -16,6 +15,12 @@
     padding-top: 4%;
 }
 
+h2 {
+    text-align-last: center;
+    color: white;
+    text-transform: uppercase;
+    padding: 2%;
+}
 
 /* NAVEGACION */
 .navForm {
@@ -107,7 +112,7 @@ a {
 
 .backgroundImg {
     background-image: url("../../public/images/fondo2.jpg");
-    background-size: cover;
+    /* background-size: cover; */
     position: relative;
     z-index: 1;
 }
@@ -346,7 +351,7 @@ body {
 
 .white-panel {
     background-color: rgba(255, 255, 255, 1);
-    height: 500px;
+    height: 550px;
     position: absolute;
     top: -50px;
     width: 50%;
@@ -515,6 +520,7 @@ body {
     padding-left: 0px;
     margin-right: 0px !important;
     margin-left: 0px !important;
+    padding: 5%;
 }
 
 .tabla div {
@@ -534,14 +540,7 @@ body {
 }
 
 /* INFORMACION */
-.impFotoMujer {
-    width: 400px;
-}
 
-.fondoInfo {
-    background-color: aquamarine;
-    width: 100%;
-}
 
 .myRow {
     margin-right: 0px;
@@ -579,11 +578,26 @@ body {
 }
 
 .leyenda {
-    padding-top: 2%;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leyendaTxt {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+}
+
+.leyenda div:nth-child(odd) {
+    color: white;
+}
+
+
+.leyenda div:nth-child(even) {
+    color: black;
 }
 
 hr {
@@ -591,7 +605,17 @@ hr {
 }
 
 .cartamujer {
-    width: 250px;
+    width: 200px;
+    height: 100%;
+}
+
+.cartas {
+    padding: 2%;
+}
+
+.btnCarta {
+    width: 100%;
+    padding-top: 2%;
 }
 
 .historia {
@@ -652,11 +676,6 @@ hr {
     /* align-items: center; */
 }
 
-.fondoInfo {
-    background-image: url(images/fondo2.jpg);
-    background-size: cover;
-    width: 100%;
-}
 
 .mora {
     background-color: rgba(199, 52, 236, 0.479);
@@ -839,9 +858,10 @@ tbody tr {
 
 /* FOOTER */
 .footerBg {
-    background-image: url("../../public/images/footer.jpg");
+    background-color: #343a40 !important;
     position: relative;
     background-size: cover;
+    color: white;
 }
 
 .leftPart {
@@ -852,19 +872,20 @@ tbody tr {
 footer h6 {
     margin-bottom: 40px;
     position: relative;
+    text-transform: uppercase;
 }
 
 footer h6:after {
     position: absolute;
     content: "";
     background: grey;
-    width: 20%;
+    width: 100%;
     height: 1px;
     left: 0;
     bottom: -20px;
 }
 
-.social .fa {   
+.social .fa {
     color: black;
     font-size: 30px;
     padding: 10px 15px;
@@ -879,6 +900,7 @@ a:hover {
 footer ul li {
     list-style: none;
     display: block;
+    padding-bottom: 5%;
 }
 
 footer ul {
@@ -890,10 +912,13 @@ footer ul li a {
     color: white;
 }
 
-
 footer {
     height: 300px;
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+.creadores {
+    margin-left: 80%;
 }

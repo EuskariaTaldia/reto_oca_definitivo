@@ -35,14 +35,11 @@
         <div class="row">
           <div class="col-md-6">
             <div class="row">
-              <div class="col-md-4 leftPart">
+              <div class="col-md-5 leftPart">
                 <h6> Echa un vistazo</h6>              
                   <ul>
                     <li> <a href="https://desayunosfeministascantabria.wordpress.com" target="_blank"> Inicio</a> </li>
                     <li> <a href="https://desayunosfeministascantabria.wordpress.com/entradas/" target="_blank"> ¿Quienes somos? </a> </li>
-                    <li> <a href="https://desayunosfeministascantabria.wordpress.com/agenda/" target="_blank"> Agenda</a> </li>
-                    <li> <a href="https://desayunosfeministascantabria.wordpress.com/recursos/" target="_blank"> Recursos</a> </li>
-                    <li> <a href="https://desayunosfeministascantabria.wordpress.com/temas/" target="_blank"> Temas</a> </li>
                     <li> <a href="https://desayunosfeministascantabria.wordpress.com/contacto/" target="_blank"> Contacto</a> </li>
                   </ul>
               </div>
@@ -55,7 +52,21 @@
                   <a href="https://www.facebook.com/desayunos.feministas.188" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
                 </div>
               </div>
+            </div>
+          </div>
 
+
+          <div class="col-md-5">
+            <div class="row">
+              <div class="col-md-6 float-right creadores"> 
+                <h6> CREADORES</h6>
+                <ul>
+                  <li> Ruben Gonzalez </li>
+                  <li> Alex Mendiluce </li>
+                  <li> Nahia Maguregui </li>
+                  <li> Gorka Intxausti </li>
+                </ul>
+              </div>
             </div>
           </div>
 

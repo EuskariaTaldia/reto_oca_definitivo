@@ -1,8 +1,9 @@
 <template>
     <div class="container">
         
+        <h2>Listado modo carta</h2>
 
-        <label for="estu">Estudios:</label>
+        <h4 for="estu">ESTUDIOS:</h4>
         <select class="form-control " name="estu" id="estu" v-model="estu">
         <!-- <select class="form-control " name="estu" id="estu" @change="filtroEstudios()"> -->
             <option value="">Sin Filtro</option>
@@ -15,27 +16,27 @@
             <option value="7">Economía</option>
             <option value="8">Sociología</option>
             <option value="9">Pedagogía</option>
-          </select>
+        </select>
 
-
-
-         <h6 style="display: flex;justify-content: center;align-items: center;color:white">Leyenda</h6>
+        <h6 class="leyendaTxt">Leyenda</h6>
         <div class="leyenda">
             <div class="row d-flex justify-content-center" style="margin-bottom: 20px;">
-                <div class="circulo border-top border-left" style="background-color:#bf8000;">Historia</div>
-                <div class="circulo border-top border-left" style="background-color:white;">Derecho</div>
-                <div class="circulo border-top border-left" style="background-color:#ff8000;">Antropología</div>
-                <div class="circulo border-top border-left" style="background-color:#e30400;">Geografía</div>
-                <div class="circulo border-top border-left" style="background-color:#780053;color:white;">Filosofía</div>
-                <div class="circulo border-top border-left" style="background-color: #004cb0;">Psicología</div>
-                <div class="circulo border-top border-left" style="background-color:#ff6171;">Economía</div>
-                <div class="circulo border-top border-left" style="background-color:#ffea00;">Sociología</div>
-                <div class="circulo border-top border-left" style="background-color:#1aab00;">Pedagogía</div>
+                <div class="circulo border-top border-left historia">Historia</div>
+                <div class="circulo border-top border-left derecho">Derecho</div>
+                <div class="circulo border-top border-left antropologia">Antropología</div>
+                <div class="circulo border-top border-left geografia">Geografía</div>
+                <div class="circulo border-top border-left filosofia">Filosofía</div>
+                <div class="circulo border-top border-left psicologia">Psicología</div>
+                <div class="circulo border-top border-left economia">Economía</div>
+                <div class="circulo border-top border-left sociologia">Sociología</div>
+                <div class="circulo border-top border-left pedagogia">Pedagogía</div>
             </div>
         </div>
+
+
         <div class="row">
-            <div v-for="mujer in filtroEstudios" :key="mujer">
-                <div class="card text-white bg-dark mb-3 cartamujer" style="max-width: 18rem;" v-bind:class="elegirClase(mujer)">
+            <div v-for="mujer in filtroEstudios" :key="mujer" class="cartas">
+                <div class="card text-white bg-dark mb-3 cartamujer" v-bind:class="elegirClase(mujer)">
                     <img v-if="mujer.fotografia" class="card-img-top imagenMujer" v-bind:src="mujer.fotografia">
                     <img v-else class="card-img-top imagenMujer" src="https://image.flaticon.com/icons/png/512/23/23030.png">
 
@@ -44,8 +45,8 @@
                         <h6 class="colorLetra">Año/Siglo: {{mujer.fechas}}</h6>
                         <h6 class="colorLetra">Zona: {{mujer.zona}}</h6>
                         <h6 class="colorLetra">Estudios: {{mujer.subarea}}</h6>
-                         <a class="btn btn-secondary" :href="mujer.enlace">Fuente</a>
-                        <a :href="'informacion/'+mujer.id" class="btn btn-dark" role="button" aria-pressed="true">Información</a>
+                        <a class="btn btn-secondary btnCarta" :href="mujer.enlace" target="_blank">Fuente</a>
+                        <a :href="'imprimirInformacionMujer'+mujer.id" class="btn btn-dark btnCarta" role="button" aria-pressed="true">Información</a>
                     </div>
                 </div>
             </div>

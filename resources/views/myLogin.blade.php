@@ -53,7 +53,7 @@
                     <a href="">¿Has olvidado la contraseña?</a>
 
                     <div class="flexBtn">
-                        <button type="reset" class="btn btn-dark logBtn"> BORRAR </button>                               
+                        <button type="reset" class="btn btn-dark logBtn"  id="reset"> BORRAR </button>                               
                         <button type="submit" class="btn btn-dark logBtn" id="btnLogin"> ENTRAR </button>    
                     </div>      
                 </form>
@@ -68,7 +68,7 @@
                     @csrf
 
                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name"  placeholder="Nombre"
-                    pattern="[A-Za-zñÑ ]{1,20}" minlength="2" maxlength="20" required autofocus>
+                    pattern="[A-Za-zñÑ ]{1,20}" minlength="3" maxlength="20" required autofocus>
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong> Caracteres incorrectos </strong>
@@ -97,7 +97,7 @@
                     <p id="mensajeError"></p>
 
                     <div class="flexBtn">
-                        <button type="reset" class="btn btn-dark logBtn"> BORRAR </button>                               
+                        <button type="reset" class="btn btn-dark logBtn" id="reset"> BORRAR </button>                               
                         <button type="submit" class="btn btn-dark logBtn" id="btnRegistro"> ENTRAR </button>    
                     </div>                                    
                 </form>

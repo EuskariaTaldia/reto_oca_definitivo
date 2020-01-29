@@ -1967,6 +1967,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     mujeres: {},
@@ -37373,7 +37374,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("label", { attrs: { for: "estu" } }, [_vm._v("Estudios:")]),
+    _c("h2", [_vm._v("Listado modo carta")]),
+    _vm._v(" "),
+    _c("h4", { attrs: { for: "estu" } }, [_vm._v("ESTUDIOS:")]),
     _vm._v(" "),
     _c(
       "select",
@@ -37425,18 +37428,7 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c(
-      "h6",
-      {
-        staticStyle: {
-          display: "flex",
-          "justify-content": "center",
-          "align-items": "center",
-          color: "white"
-        }
-      },
-      [_vm._v("Leyenda")]
-    ),
+    _c("h6", { staticClass: "leyendaTxt" }, [_vm._v("Leyenda")]),
     _vm._v(" "),
     _vm._m(0),
     _vm._v(" "),
@@ -37444,13 +37436,12 @@ var render = function() {
       "div",
       { staticClass: "row" },
       _vm._l(_vm.filtroEstudios, function(mujer) {
-        return _c("div", { key: mujer }, [
+        return _c("div", { key: mujer, staticClass: "cartas" }, [
           _c(
             "div",
             {
               staticClass: "card text-white bg-dark mb-3 cartamujer",
-              class: _vm.elegirClase(mujer),
-              staticStyle: { "max-width": "18rem" }
+              class: _vm.elegirClase(mujer)
             },
             [
               mujer.fotografia
@@ -37486,8 +37477,8 @@ var render = function() {
                 _c(
                   "a",
                   {
-                    staticClass: "btn btn-secondary",
-                    attrs: { href: mujer.enlace }
+                    staticClass: "btn btn-secondary btnCarta",
+                    attrs: { href: mujer.enlace, target: "_blank" }
                   },
                   [_vm._v("Fuente")]
                 ),
@@ -37495,9 +37486,9 @@ var render = function() {
                 _c(
                   "a",
                   {
-                    staticClass: "btn btn-dark",
+                    staticClass: "btn btn-dark btnCarta",
                     attrs: {
-                      href: "informacion/" + mujer.id,
+                      href: "imprimirInformacionMujer" + mujer.id,
                       role: "button",
                       "aria-pressed": "true"
                     }
@@ -37528,82 +37519,53 @@ var staticRenderFns = [
         [
           _c(
             "div",
-            {
-              staticClass: "circulo border-top border-left",
-              staticStyle: { "background-color": "#bf8000" }
-            },
+            { staticClass: "circulo border-top border-left historia" },
             [_vm._v("Historia")]
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "circulo border-top border-left",
-              staticStyle: { "background-color": "white" }
-            },
-            [_vm._v("Derecho")]
-          ),
+          _c("div", { staticClass: "circulo border-top border-left derecho" }, [
+            _vm._v("Derecho")
+          ]),
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass: "circulo border-top border-left",
-              staticStyle: { "background-color": "#ff8000" }
-            },
+            { staticClass: "circulo border-top border-left antropologia" },
             [_vm._v("Antropología")]
           ),
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass: "circulo border-top border-left",
-              staticStyle: { "background-color": "#e30400" }
-            },
+            { staticClass: "circulo border-top border-left geografia" },
             [_vm._v("Geografía")]
           ),
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass: "circulo border-top border-left",
-              staticStyle: { "background-color": "#780053", color: "white" }
-            },
+            { staticClass: "circulo border-top border-left filosofia" },
             [_vm._v("Filosofía")]
           ),
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass: "circulo border-top border-left",
-              staticStyle: { "background-color": "#004cb0" }
-            },
+            { staticClass: "circulo border-top border-left psicologia" },
             [_vm._v("Psicología")]
           ),
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass: "circulo border-top border-left",
-              staticStyle: { "background-color": "#ff6171" }
-            },
+            { staticClass: "circulo border-top border-left economia" },
             [_vm._v("Economía")]
           ),
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass: "circulo border-top border-left",
-              staticStyle: { "background-color": "#ffea00" }
-            },
+            { staticClass: "circulo border-top border-left sociologia" },
             [_vm._v("Sociología")]
           ),
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass: "circulo border-top border-left",
-              staticStyle: { "background-color": "#1aab00" }
-            },
+            { staticClass: "circulo border-top border-left pedagogia" },
             [_vm._v("Pedagogía")]
           )
         ]

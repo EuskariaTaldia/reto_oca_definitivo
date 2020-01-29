@@ -10,7 +10,7 @@ function iniciar() {
 
     // Comoprobamos que es lo que estamos validando
     if(btnJugar != null) btnJugar.addEventListener('click', validarJuego, false);
-    //if(enviarPeticion != null) enviarPeticion.addEventListener('click', validarPeticion, false);
+    if(enviarPeticion != null) enviarPeticion.addEventListener('click', validarPeticion, false);
     if(btnLogin != null) btnLogin.addEventListener('click', validarLogin, false);
     if(btnRegistro != null) btnRegistro.addEventListener('click', validarRegistro, false);
     if(btnReset != null) btnReset.addEventListener('click', borrarError, false);
@@ -219,8 +219,8 @@ function validaNombre(){
         }
 
 
-        if (elemento.value.length < 8) {
-            error(elemento, "La contraseña tiene que ser mayor que 8");
+        if (elemento.value.length < 3) {
+            error(elemento, "El nombre tiene que ser mayor que 8");
             return false;
         }
 
@@ -305,7 +305,6 @@ function validaCorreoLogin() {
         }
 
         if (elemento.validity.patternMismatch) {
-            alert("pattern");
             error(elemento, "Tiene que ser un correo electronico, ej: ejemplo@gmail.com");
             return false;
         }
@@ -338,10 +337,10 @@ function borrarError() {
         // formulario.elements[i].classList.remove("error");
         //alert(logForm[i].className);
 
-        logForm[i].className = "";
+        logForm[i].classList.remove("error");
     }
 
-    // document.getElementById("mensajeError").innerHTML ="";
+    document.getElementById("mensajeError").innerHTML ="";
 }
 
 

@@ -29,31 +29,40 @@
     Route::get('/register', 'Auth\LoginController@loginForm')->name('register');
     Route::post('/register', 'Auth\RegisterController@create');
 
-
     // Rutas para imprimir cartas
     Route::get('/imprimirCartas', 'ImprimirController@getGaleria');
     Route::get('/imprimirPreguntas', 'ImprimirController@getPreguntas');
 
 
     // Rutas para imprimir la informacion
-    Route::get('/imprimirInformacionMujer/{codMujer}', 'ImprimirController@getInformacionMujer');
+    Route::get('/imprimirInformacionMujer{codMujer}', 'ImprimirController@getInformacionMujer');
     Route::get('/imprimirInformacionMujeres', 'ImprimirController@getInformacionMujeres');
 
 
     // Ruta para imprimir el tablero
     Route::post('/imprimirTablero', 'ImprimirController@getTablero');
-     
 
-    Route::group(['middleware ' => 'auth'], function () {   
 
-        if(Auth::check()){  
-            Route::get('/crearPeticion', 'PeticionController@getFormulario');
-            Route::post('/crearPeticion', 'PeticionController@guardar');
+    //  Rutas que puedes acceder estando LOGEADO
+    Route::get('/crearPeticion', 'PeticionController@getFormulario')->middleware('auth')->name('crearPeticion');
+    Route::post('/crearPeticion', 'PeticionController@guardar');
 
-            Route::get('/tablaPeticiones', 'PeticionController@getTabla')->middleware('is_admin');
-        } 
+    
+    // Rutas solo para el ADMIN
+    Route::get('/tablaPeticiones', 'PeticionController@getTabla')->middleware('is_admin');
 
-    });
+    // Route::group(['middleware ' => 'auth'], function () {   
+
+    //     if(Auth::check()){  
+    //         Route::get('/crearPeticion', 'PeticionController@getFormulario')->middleware('auth');;
+    //         Route::post('/crearPeticion', 'PeticionController@guardar');
+
+    //         Route::get('/tablaPeticiones', 'PeticionController@getTabla')->middleware('is_admin');
+    //     } else{
+    //         echo "else";
+    //     }
+
+    // });
     
     
 

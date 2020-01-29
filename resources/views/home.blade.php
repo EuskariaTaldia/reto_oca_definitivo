@@ -78,7 +78,7 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Borrar</button>
+                            <button type="reset" class="btn btn-secondary" id="reset" data-dismiss="modal">Borrar</button>
                             <button type="submit" class="btn btn-dark" id="btnJugar">Jugar</button>    
                         </div>
 

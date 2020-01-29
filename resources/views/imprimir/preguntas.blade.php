@@ -12,7 +12,8 @@
     <div class="fondo">
         <input class="btn btn-dark ancho" type="button" name="imprimir" value="Imprimir Datos" onclick="window.print();">
 
-        
+        <h2>Listado modo carta</h2>
+
         {{-- LEYENDA --}}
         <h6 style="display: flex;justify-content: center;align-items: center;color:white">Leyenda</h6>
         <div class="leyenda">

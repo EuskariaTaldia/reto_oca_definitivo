@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class CheckAdmin
 {
@@ -14,10 +15,13 @@ class CheckAdmin
      * @return mixed
      */
     public function handle($request, Closure $next) {
-        if(auth()->user()->admin == 1){
-            return $next($request);
-        }
-   
-        return redirect('home')->with('error',"You don't have admin access.");
+
+        if(Auth::check()){
+            if(auth()->user()->admin == 1){
+                return $next($request);
+            }
+        }   
+
+        return redirect('404');
     }
 }
