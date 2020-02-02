@@ -35,8 +35,8 @@
 
 
     // Rutas para imprimir la informacion
-    Route::get('/imprimirInformacionMujer{codMujer}', 'ImprimirController@getInformacionMujer');
-    Route::get('/imprimirInformacionMujeres', 'ImprimirController@getInformacionMujeres');
+    Route::get('/imprimirMujer{codMujer}', 'ImprimirController@getInformacionMujer');
+    Route::get('/imprimirMujeres', 'ImprimirController@getInformacionMujeres');
 
 
     // Ruta para imprimir el tablero

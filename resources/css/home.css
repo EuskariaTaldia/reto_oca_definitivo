@@ -1,0 +1,84 @@
+.input-group-text {
+    width: 150px !important;
+}
+
+.modal-content {
+    background-color: rgba(255, 7, 234, 0.226);
+}
+
+.modal-body{
+    margin-top: 2%;
+}
+
+.modal {
+    z-index: 0 !important;
+}
+
+.modal-title {
+    color: white;
+}
+
+.backgroundImg {
+    background-image: url("../../public/images/fondo2.jpg");
+    /* background-size: cover; */
+    position: relative;
+    z-index: 1;
+}
+
+#myModal {
+    position: relative;
+    padding-top: 3%;
+    /* padding-bottom: 3%; */
+    height: 100%;
+}
+
+.myForm {
+    background-color: transparent;
+}
+
+.logo {
+    width: 30%;
+}
+
+.logoDiv {
+    width: 20% !important;
+    margin-bottom: 0% !important;
+    display: table-row;
+}
+
+.logoDiv object {
+    display: table-cell;
+    vertical-align: top;
+    margin-right: 10px;
+    float: left;
+}
+
+.logoTxt {
+    padding-top: 2%;
+    display: table-cell;
+    vertical-align: top;
+    /* color: white; */
+}
+
+.rbJugadores {
+    height: 20%;
+    background: none !important;
+    background-color: white !important;
+}
+
+.inputJugadores {
+    background: none !important;
+    background-color: white !important;
+    padding-right: 2%;
+}
+
+.inputJugadores::-webkit-inner-spin-button,
+.inputJugadores::-webkit-outer-spin-button {
+    background: none !important;
+    opacity: 1;
+    margin-left: 0%;
+}
+
+.btnRegistro {
+    float: right;
+}

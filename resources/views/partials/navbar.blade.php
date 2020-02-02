@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 
-                <li class="nav-item dropdown {{ Request::is('imprimirCartas') || Request::is('imprimirPreguntas') || Request::is('imprimirInformacionMujeres') ? 'active' : ''}}">
+                <li class="nav-item dropdown {{ Request::is('imprimirCartas') || Request::is('imprimirPreguntas') || Request::is('imprimirMujeres') ? 'active' : ''}}">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Galeria
                     </a>
@@ -33,7 +33,7 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{url('/imprimirPreguntas')}}">Preguntas</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{url('/imprimirInformacionMujeres')}}">Listado</a>
+                        <a class="dropdown-item" href="{{url('/imprimirMujeres')}}">Listado</a>
                     </div>
                 </li>
 

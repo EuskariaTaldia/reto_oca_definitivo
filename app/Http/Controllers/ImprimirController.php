@@ -36,7 +36,13 @@ class ImprimirController extends Controller  {
             $usuario = "anonimo";
         }
 
-        return view('imprimir.preguntas',  compact("usuario", "arrayPreguntas"));
+        // return view('imprimir.preguntas',  compact("usuario", "arrayPreguntas"));
+        // PRUEBAS
+
+        
+        $arraymujeres = Mujer::all();
+
+        return view('imprimir.mujeres', compact("usuario", "arraymujeres"));
     }
 
      // Informacion de solo UNA mujer
@@ -54,9 +60,15 @@ class ImprimirController extends Controller  {
 
     // Informacion de TODAS las mujeres
     public function getInformacionMujeres() {
-        $mujeres = Mujer::all();
-        
-        return view('imprimir.mujeres', ["arraymujeres" => $mujeres]);
+        $arraymujeres = Mujer::all();
+       
+        if(Auth::check() ) {
+            $usuario = Auth::user();
+        } else {
+            $usuario = "anonimo";
+        }
+
+        return view('imprimir.mujeres', compact("usuario", "arraymujeres"));
     }
 
 

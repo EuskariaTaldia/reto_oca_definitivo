@@ -1,0 +1,209 @@
+/* INFORMACION */
+
+.letra {
+    color: white;
+}
+
+/* GALERIA */
+.filtrado {
+    color: white;
+}
+
+.fondo {
+    background-image: url("../../public/images/fondo2.jpg");
+    position: relative;
+    z-index: 1;
+}
+
+.subtitulo {
+    text-align: center;
+    padding: 2%;
+}
+
+.circulo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.leyenda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leyendaTxt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding-top: 5%;
+    text-transform: uppercase;
+}
+
+.leyenda div:nth-child(odd) {
+    color: white;
+}
+
+
+.leyenda div:nth-child(even) {
+    color: black;
+}
+
+hr {
+    border: 3px solid white ;
+}
+
+.cartamujer {
+    width: 250px;
+    height: 100%;
+}
+
+.cartas {
+    padding: 2%;
+}
+
+.circuloImg{
+    margin: 5%;
+}
+
+.btnCarta {
+    padding-top: 2%;
+}
+
+.historia {
+    background-color: #bf8000 !important;
+}
+
+.derecho {
+    background-color: white !important;
+}
+
+.antropologia {
+    background-color: #ff8000 !important;
+}
+
+.geografia {
+    background-color: #e30400 !important;
+}
+
+.filosofia {
+    background-color: #780053 !important;
+}
+
+.psicologia {
+    background-color: #004cb0 !important;
+}
+
+.economia {
+    background-color: #ff6171 !important;
+}
+
+.sociologia {
+    background-color: #ffea00 !important;
+}
+
+.pedagogia {
+    background-color: #1aab00 !important;
+}
+
+.imagenMujer {
+    height: 200px;
+}
+
+.columnas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* GALERIA DATOS */
+.impFotoMujer {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-left: 30%;
+    border: 5px black solid;
+}
+
+.colorLetr {
+    color: white;
+}
+
+.fondoInfo{ 
+    background-color: rgba(0, 0, 0, 0.582);
+    margin-left: 5%;
+    padding: 2%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media print {
+    .impFotoMujer {
+        width: 200px;
+        height: 300px;
+        margin-left: 0;
+    }
+    
+    .fondoInfo {
+        color: black;
+
+    }
+}
+
+
+/* PREGUNTAS */
+.sinEspacio {
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.tamañoLetra {
+    font-size: 14px;
+}
+
+.tamañoCarta {
+    width: 300px;
+    height: 450px;
+}
+
+.card {
+    border: 4px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.columnas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imaTam {
+    width: 100%;
+    height: 110%;
+    border-radius: 50px;
+}
+
+.ancho {
+    width: 100%;
+}
+
+.card-body{
+    color: black;
+}
