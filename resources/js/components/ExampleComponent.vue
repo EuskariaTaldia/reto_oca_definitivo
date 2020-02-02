@@ -49,10 +49,14 @@
                         <a :href="'imprimirInformacionMujer'+mujer.id" class="btn btn-dark btnCarta" role="button" aria-pressed="true">Información</a>
                     </div>
                 </div>
+
             </div>
         </div>        
     </div>
 </template>
+<style scoped>
+
+</style>
 
 <style scoped>
 </style>

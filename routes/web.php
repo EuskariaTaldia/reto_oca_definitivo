@@ -42,6 +42,15 @@
     // Ruta para imprimir el tablero
     Route::post('/imprimirTablero', 'ImprimirController@getTablero');
 
+<<<<<<< HEAD
+=======
+    Route::group(['middleware ' => 'auth'], function () {   
+        Route::get('/crearPeticion', 'PeticionController@getFormulario')->name('crearPeticion');
+        Route::post('/crearPeticion', 'PeticionController@guardar');
+
+        Route::get('/tablaPeticiones', 'PeticionController@getTabla')->middleware('is_admin');
+
+>>>>>>> e06c8b0695352e1e7c4c1e172b14bcf78f3c3c18
 
     //  Rutas que puedes acceder estando LOGEADO
     Route::get('/crearPeticion', 'PeticionController@getFormulario')->middleware('auth')->name('crearPeticion');

@@ -14,10 +14,6 @@ class Pregunta extends Model
 
     protected $foreignKey = "codMujer";
 
-    // Columnas que contiene
-    protected $fillable = [
-        'pregun', 'resCorre', 'resFall1', 'resFall2', 'codMujer',
-    ];
 
 
     // Relaciones

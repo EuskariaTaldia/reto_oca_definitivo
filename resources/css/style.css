@@ -3,7 +3,11 @@
     min-height: 100%;
     position: relative;
     padding: 0;
+<<<<<<< HEAD
     padding-bottom: 2%;
+=======
+    padding-bottom: 10%;
+>>>>>>> e06c8b0695352e1e7c4c1e172b14bcf78f3c3c18
 }
 
 .cartasContainer {
@@ -518,7 +522,7 @@ body {
     grid-template-columns: auto auto;
     grid-gap: 10px; /*grind-colum-gap*/
 }
-.ficha {
+[id*=ficha]{
     width: 10px;
 }
 .sidecontenedor {
@@ -533,7 +537,10 @@ body {
     margin-right: 0px !important;
     margin-left: 0px !important;
 }
-
+.modal-backdrop {
+    z-index: -1;
+  }
+  
 .tablero {
     padding-right: 0px;
     padding-left: 0px;
@@ -542,8 +549,8 @@ body {
     padding: 5%;
 }
 
-.tabla div {
-    background-color: red;
+.tabla div{
+    background-color: white;
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;
@@ -943,9 +950,14 @@ footer {
     height: 300px;
     position: absolute;
     bottom: 0;
+<<<<<<< HEAD
     width: 100%;
 }
 
 .creadores {
     margin-left: 80%;
+=======
+    left: 0;
+    padding: 1rem;
+>>>>>>> e06c8b0695352e1e7c4c1e172b14bcf78f3c3c18
 }
