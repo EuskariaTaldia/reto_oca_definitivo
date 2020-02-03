@@ -126,10 +126,9 @@ hr {
 /* GALERIA DATOS */
 .impFotoMujer {
     height: 100%;
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: center;
-    margin-left: 30%;
     border: 5px black solid;
 }
 
