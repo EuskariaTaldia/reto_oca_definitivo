@@ -4,11 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-use App\User;
 use App\Mujer;
 use App\Pregunta;
-use App\Area;
-use App\Zona;
 
 class ImprimirController extends Controller  {
     
@@ -70,8 +67,6 @@ class ImprimirController extends Controller  {
 
         return view('imprimir.mujeres', compact("usuario", "arraymujeres"));
     }
-
-
     // TABLERO DE LA OCA
     public function getTablero(Request $request) {        
         if(Auth::check() ) {
@@ -85,14 +80,15 @@ class ImprimirController extends Controller  {
         } else {
             $especificacion = "null";
         }
-
+        $mujeres = Mujer::all();
         $gameType = $request->input('gameType');
+        $filtro = $request->filtro;
+        $especificacion = $request->especificacion;
         $jugador = $request->input('jugador');
 
+        return view('imprimir.tablero',compact ("gameType", "filtro", "especificacion", "jugador","mujeres"));
+        
 
-        return view('imprimir.tablero', compact("usuario", "gameType", "especificacion", "jugador"));
     }
 
 }
-
-?>

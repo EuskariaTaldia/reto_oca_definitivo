@@ -12,7 +12,7 @@ class Peticion extends Model
    // Primay key de la tabla
     protected $primaryKey = 'codPeti';
 
-    // No necesitamos tener 
+    // No necesitamos tener
     public $timestamps = false;
 
     // Columnas que contiene

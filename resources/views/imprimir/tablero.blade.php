@@ -33,13 +33,14 @@
       </div>
     </div>
   </div>
-
+  
     {{-- LAYOUT --}}
     <div class="grid-layout">
       <div class="container sidecontenedor">
           <div class="fotoMujer"></div>
-          <div class="textoMujer"></div>
+        <div class="textoMujer"></div>
         <p>This is some text.</p>
+
       </div>
       
       <div class="container tablero" id="tablero">            
@@ -50,8 +51,12 @@
         <div class="tabla" id="tabla"></div>
         <nav class="fixed-bottom ">
           <div id="die1" class="dice"></div>
-          <button onclick="onclikar()">Tira el Dado</button>
-          <button onclick="valores(1,26)"> Dado trampa</button> 
+          <img id="dado" src='../public/images/tablero/dado1.png' alt='dado' onclick="onclikar()" style="cursor: pointer">
+
+          {{-- <button onclick="onclikar()">Tira el Dado</button> --}}
+          {{-- <button onclick="valores(1,19)"> Dado trampa</button>  --}}
+          <button onclick="window.print();">imprimir</button>
+        
         <nav>
       </div>
     </div>

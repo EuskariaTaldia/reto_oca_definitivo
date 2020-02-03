@@ -13,9 +13,4 @@ class Area extends Model
     // Primay key de la tabla
     protected $primaryKey = 'codArea';
 
-    // Columnas que contiene
-    protected $fillable = [
-        'area', 'area_ing', 'area_eus',
-    ];
-
 }

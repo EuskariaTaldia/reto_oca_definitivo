@@ -7,7 +7,8 @@
     grid-template-columns: auto auto;
     grid-gap: 10px; /*grind-colum-gap*/
 }
-.ficha {
+
+[id*=ficha]{
     width: 10px;
 }
 .sidecontenedor {
@@ -22,7 +23,10 @@
     margin-right: 0px !important;
     margin-left: 0px !important;
 }
-
+.modal-backdrop {
+    z-index: -1;
+  }
+  
 .tablero {
     padding-right: 0px;
     padding-left: 0px;
@@ -31,8 +35,8 @@
     padding: 5%;
 }
 
-.tabla div {
-    background-color: red;
+.tabla div{
+    background-color: white;
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;
@@ -46,4 +50,17 @@
     grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px;
     text-align: center;
 }
+/* 
+.tabla div#1{
 
+} */
+
+
+.tabla div#21, .tabla div#43{
+    border-radius: 50px 0px 0px 0px
+}
+
+
+/* .tabla:nth-child(7n) {
+    border-radius: 50px 0px 0px 0px
+} */

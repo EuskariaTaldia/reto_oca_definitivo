@@ -136,7 +136,7 @@ hr {
     color: white;
 }
 
-.fondoInfo{ 
+.fondoInfo { 
     background-color: rgba(0, 0, 0, 0.582);
     margin-left: 5%;
     padding: 2%;
@@ -158,9 +158,8 @@ hr {
         margin-left: 0;
     }
     
-    .fondoInfo {
+    .colorLetr {
         color: black;
-
     }
 }
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
@@ -26,15 +27,15 @@ class HomeController extends Controller
      */
     public function getIndex() {
         if(Auth::check() ) {
-            $usuario = Auth::user();
-        } else {
+            $usuario = Auth::user()->name;
+        } else{
             $usuario = "anonimo";
         }
-        
+
         $arrayZonas = Zona::all();
         $arrayAreas = Area::all();
-            
-        return view('home', compact("usuario", "arrayAreas", "arrayZonas"));
+      
+        return view('home', compact("usuario", "arrayZonas", "arrayAreas"));
     }
     
 

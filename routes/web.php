@@ -20,14 +20,17 @@
     // Ruta de la pagina inicial
     Route::get('/home', 'HomeController@getIndex')->name('home');
 
+    
     // Rutas para logearte
     Route::get('/login', 'Auth\LoginController@loginForm')->name('login');
     Route::post('/login', 'Auth\LoginController@login');
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
+
     // Rutas para el registro
     Route::get('/register', 'Auth\LoginController@loginForm')->name('register');
     Route::post('/register', 'Auth\RegisterController@create');
+
 
     // Rutas para imprimir cartas
     Route::get('/imprimirCartas', 'ImprimirController@getGaleria');

@@ -120,7 +120,6 @@ function validaPais() {
     return true;
 }
 
-
 function validaUrl() {
     var elemento = document.getElementById("foto");
     var elemento2 = document.getElementById("enlace");
