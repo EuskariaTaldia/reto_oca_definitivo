@@ -10,20 +10,16 @@
         </ol>
     </nav>
 
-    <h2>Listado de todas las Mujeres</h2>
-    <br>
-    <hr>
-    <input class="btn btn-dark" type="button" name="imprimir" value="Imprimir Datos" onclick="window.print();">
-
-    <br>
+    <h2>
+        Listado de todas las Mujeres <i class="fa fa-print" name="imprimir" value="Imprimir Datos" onclick="window.print();"></i>
+    </h2> 
 
     {{-- Recorremos todas las mujeres --}}
     @foreach ($arraymujeres as $mujer)
 
         <div class="fondoInfo row ">
-            {{-- <div class="mora"> --}}
             {{-- <div class="saltopagina"></div> --}}
-            <div class="col-lg-5 col-md-12">
+            <div class="col-lg-3 col-md-12">
                 {{-- TODO: La Imagen de la película --}}
                 @if($mujer->fotografia==null)
                     <img class="impFotoMujer rounded" src="https://image.flaticon.com/icons/png/512/23/23030.png" alt="Argazkia 1">

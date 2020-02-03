@@ -1,10 +1,9 @@
 <template>
-    <div class="container">
+    <div class="container cartasContainer">
         
         <h2>Listado modo carta</h2>
 
-        <h4 for="estu">ESTUDIOS:</h4>
-        <select class="form-control " name="estu" id="estu" v-model="estu">
+        Filtrado <select class="form-control " name="estu" id="estu" v-model="estu">
         <!-- <select class="form-control " name="estu" id="estu" @change="filtroEstudios()"> -->
             <option value="">Sin Filtro</option>
             <option value="1">Historia</option>
@@ -33,6 +32,7 @@
             </div>
         </div>
 
+        <hr>
 
         <div class="row">
             <div v-for="mujer in filtroEstudios" :key="mujer" class="cartas">
@@ -55,7 +55,6 @@
 </template>
 
 <style scoped>
-
 </style>
 
 <script>
@@ -63,7 +62,6 @@
         props: {
             mujeres: { },
             mujeresFiltrado: { },
-
         },
         mounted() {
         },
@@ -83,7 +81,6 @@
                 }
                 
             }        
-
         },
         methods:{
             elegirClase(mujer){
@@ -93,6 +90,4 @@
             
         }
     }
-
     </script>
-

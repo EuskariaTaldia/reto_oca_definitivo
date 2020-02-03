@@ -1967,7 +1967,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     mujeres: {},
@@ -37373,11 +37372,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container cartasContainer" }, [
     _c("h2", [_vm._v("Listado modo carta")]),
-    _vm._v(" "),
-    _c("h4", { attrs: { for: "estu" } }, [_vm._v("ESTUDIOS:")]),
-    _vm._v(" "),
+    _vm._v("\n\n    Filtrado "),
     _c(
       "select",
       {
@@ -37431,6 +37428,8 @@ var render = function() {
     _c("h6", { staticClass: "leyendaTxt" }, [_vm._v("Leyenda")]),
     _vm._v(" "),
     _vm._m(0),
+    _vm._v(" "),
+    _c("hr"),
     _vm._v(" "),
     _c(
       "div",

@@ -13,7 +13,7 @@
 
         <h2 class="title">Inserta los datos</h2>
 
-        <form method="POST" action="{{ route('crearPeticion') }}" class="contact-form row">
+        <form method="POST" action="{{ route('crearPeticion') }}" class="contact-form row" id="peticionForm">
         @csrf
             {{-- Nombre y apellidos --}}
             <div class="form-field col-lg-6">
@@ -31,7 +31,7 @@
             {{-- Fechas --}}
             <div class="form-field col-lg-6">
                 <input id="fecha" type="text" class="input-text js-input @error('fecha') is-invalid @enderror"
-                name="fecha" placeholder="Ej: 1909-1990 // VI" pattern="[A-Za-zñÑ0-9 -]{1,10}" maxlength="9" required>
+                name="fecha" placeholder="Ej: 1909-1990 // VI" pattern="[A-Za-zñÑ0-9 / - ]{1,10}" maxlength="10" required>
                 <label class="label" for="fecha">Fecha / Siglo</label>
                 @error('fecha')
                     <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
                     @endforeach                
                 </select>
                 <label class="label" for="zona">Zona geografica</label>
-                @error('pais')
+                @error('zona')
                     <span class="invalid-feedback" role="alert">
                         <strong>Elige otra zona</strong>
                     </span>
@@ -101,7 +101,7 @@
 
             {{-- Foto URL --}}
             <div class="form-field col-lg-6">
-                <input type="text" id="foto" class="input-text js-input @error('foto') is-invalid @enderror" 
+                <input type="text" id="foto" class="input-text js-input @error('foto') is-invalid @enderror" placeholder="https://ejemplo.com"
                 name="foto" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" minlength="1" maxlength="300" required/>                                          
                 <label class="label" for="foto">Foto (URL)</label>
                 @error('foto')
@@ -114,7 +114,7 @@
             
             {{-- Informacion URL --}}
             <div class="form-field col-lg-6 ">                
-                <input type="text" class="input-text js-input @error('enlace') is-invalid @enderror"
+                <input type="text" class="input-text js-input @error('enlace') is-invalid @enderror" placeholder="https://ejemplo.com"
                 name="enlace" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" minlength="1" maxlength="200" required/>     
                 <label class="label" for="enlace">Información (URL)</label>
                  @error('enlace')
@@ -139,7 +139,7 @@
             <p id="mensajeError"></p>
 
             <div class="form-field col-lg-12 flexBtn ">                
-                <input class="submit-btn" type="reset" value="Borrar">
+                <input class="submit-btn" type="reset" id="reset" value="Borrar">
                 <input class="submit-btn" type="submit" id="enviarPeticion" value="Submit">
             </div>
         </form>
