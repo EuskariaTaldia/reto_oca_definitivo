@@ -66,7 +66,7 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle loginLink" data-toggle="dropdown">
                                         <span class="glyphicon glyphicon-user"></span> 
-                                        <strong>{{$usuario->name ?? ''}}</strong>
+                                        <strong>{{$usuario->name ?? 'no esta'}}</strong>
                                         <span class="glyphicon glyphicon-chevron-down"></span>
                                     </a>
                                     <ul class="dropdown-menu">
@@ -79,7 +79,7 @@
                                                         </p>
                                                     </div>
                                                     <div class="col-lg-8">
-                                                        <p class="text-left small">{{$usuario->email ?? ''}}</p>
+                                                        <p class="text-left small">{{$usuario->email ?? 'no esta'}}</p>
                                                     </div>
                                                 </div>
                                             </div>

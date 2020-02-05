@@ -58,15 +58,73 @@
         $k=1;
         for($i = 0; $i < $totalItem; $i++){
           if(in_array($i,$casillasEspeciales,true)){
-            $html .= '<div id="'.$i.'" style="grid-area: c'.$i.'">'.$i;
+            switch($i){
+                case 6:
+                case 12:
+                  //
+                  $texto='../public/images/tablero/ManifestacionFeminista.jpg';
+                  $html .= '<div id="'.$i.'" style="background-image: url('. $texto.'); grid-area: c'.$i.';">'.$i.'</div>';
+                  break;
+                case 26:
+                case 53:
+                
+                        $texto='../public/images/tablero/dadosRosas.jpg';
+                        $html .= '<div id="'.$i.'" style="background-image: url('. $texto.'); grid-area: c'.$i.';">'.$i.'</div>';    
+                    break;
+                 case 19:
+                        //metod
+                        //por determinar
+                    break;
+                case 31:
+                        //metodo
+                       $texto='../public/images/tablero/pozoMorado.jpg';
+                        $html .= '<div id="'.$i.'" style="background-image: url('. $texto.'); grid-area: c'.$i.';">'.$i.'</div>';    
+                      
+                    break;
+                case 42:
+                       $texto='../public/images/tablero/laberintoMorado.jpg';
+                        $html .= '<div id="'.$i.'" style="background-image: url('. $texto.'); grid-area: c'.$i.';">'.$i.'</div>';    
+                      
+                    break;
+                case 58:
+                        $texto='../public/images/tablero/Calaver.jpg';
+                        $html .= '<div id="'.$i.'" style="background-image: url('. $texto.'); grid-area: c'.$i.';">'.$i.'</div>';    
+                      
+                    break;
+                case 63:                
+                case 64:
+                case 65:
+                case 66:
+                case 67:
+                case 68:
+                     
+                    break;
+                case 5:
+                case 9:
+                case 14:
+                case 18:
+                case 23:
+                case 27:
+                case 32:
+                case 36:
+                case 41:
+                case 45:
+                case 50:
+                case 54:
+                case 59:
+                   
+                    break;            
+            }
+
           }else{
             foreach ($arrayMujeres as $mujer){
             if($mujer->id==$Tiponormal[$k]){
               if($mujer->fotografia==null){
-                $html .= '<div id="'.$i.'" style="background-image: src('.$mujer->fotografia.'); grid-area: c'.$i.'">'.$i;
+                $html .= '<div id="'.$i.'" style="background-image: src('.$mujer->fotografia.'); grid-area: c'.$i.'">'.$i.'</div>';
+;
 
                 }else{
-                  $html .= '<div id="'.$i.'" style="background-image: url('.$mujer->fotografia.'); grid-area: c'.$i.'">'.$i;
+                  $html .= '<div id="'.$i.'" style="background-image: url('.$mujer->fotografia.'); grid-area: c'.$i.'">'.$i.'</div>';
 
            }
               }else{
@@ -75,7 +133,6 @@
             $k=$k+1;
 
          }
-          $html .='</div>';
         }
       
         echo $html;
