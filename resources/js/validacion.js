@@ -10,7 +10,7 @@ function iniciar() {
 
     // Comoprobamos que es lo que estamos validando
     if(btnJugar != null) btnJugar.addEventListener('click', validarJuego, false);
-    if(enviarPeticion != null) enviarPeticion.addEventListener('click', validarPeticion, false);
+    // if(enviarPeticion != null) enviarPeticion.addEventListener('click', validarPeticion, false);
     if(btnLogin != null) btnLogin.addEventListener('click', validarLogin, false);
     if(btnRegistro != null) btnRegistro.addEventListener('click', validarRegistro, false);
     if(btnReset != null) btnReset.addEventListener('click', borrarError, false);
@@ -170,6 +170,7 @@ function validaUrlEnlace(){
 
         if (elemento.validity.patternMismatch) {
             error(elemento, "Tiene que ser un URL.");
+            alert("eeeee");
             return false;
         }
 
@@ -180,6 +181,8 @@ function validaUrlEnlace(){
 
         return false;
     }
+
+    return true;
 
 }
 

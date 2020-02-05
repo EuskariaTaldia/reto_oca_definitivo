@@ -114,7 +114,7 @@
             
             {{-- Informacion URL --}}
             <div class="form-field col-lg-6 ">                
-                <input type="text" class="input-text js-input @error('enlace') is-invalid @enderror" placeholder="https://ejemplo.com"
+                <input type="text" id="enlace" class="input-text js-input @error('enlace') is-invalid @enderror" placeholder="https://ejemplo.com"
                 name="enlace" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" minlength="1" maxlength="200" required/>     
                 <label class="label" for="enlace">Información (URL)</label>
                  @error('enlace')
