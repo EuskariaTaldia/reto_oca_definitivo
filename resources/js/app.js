@@ -21,6 +21,8 @@ window.Vue = require('vue');
 
 Vue.component('peticion-component', require('./components/peticion.vue').default);
 Vue.component('tabla-component', require('./components/tabla.vue').default);
+Vue.component('mujer-component', require('./components/mujer.vue').default);
+
 
 
 /**
@@ -32,3 +34,5 @@ Vue.component('tabla-component', require('./components/tabla.vue').default);
 const app = new Vue({
     el: '#app',
 });
+
+

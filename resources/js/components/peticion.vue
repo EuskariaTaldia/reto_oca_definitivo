@@ -64,6 +64,7 @@
 </template>
 
 <script>
+
     export default {
         data(){
             return{
@@ -107,7 +108,7 @@
                     'datos':this.datos,
                     'enlace':this.enlace,
                     'codArea':this.codArea,
-                    'zona':this.Zona,
+                    'zona':this.zona,
                     'fotografia':this.fotografia,
 
 
@@ -120,7 +121,7 @@
                 });
 
             },
-            
+
             clearFields(){/*Limpia los campos e inicializa la variable update a 0*/
                 this.nombreMujer = "";
                 this.fechas = "";

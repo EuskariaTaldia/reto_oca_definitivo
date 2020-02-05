@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Peticion;
-//use App\Zona;
+use App\Mujer;
 use Illuminate\Http\Request;
 
 class PeticionsController extends Controller
@@ -12,9 +12,17 @@ class PeticionsController extends Controller
     public function index(Request $peticion)
     {
         $peticion = Peticion::all();
-        return $peticion;
+        return $peticion ;
         //Esta función nos devolvera todas las tareas que tenemos en nuestra BD
     }
+
+    // public function indexM(Request $mujer)
+    // {
+    //     $mujer = Mujer::all();
+    //     return $mujer ;
+    //     //Esta función nos devolvera todas las tareas que tenemos en nuestra BD
+    // }
+
 
     public function store(Request $request)
     {
@@ -33,6 +41,25 @@ class PeticionsController extends Controller
         $peticion->save();
         //Esta función guardará las tareas que enviaremos mediante vuejs
     }
+
+
+    public function pasarTabla(Request $request)
+    {
+        $mujer = new Mujer();
+
+        $mujer->nombre = $request->nombre;
+        $mujer->fechas = $request->fechas;
+        $mujer->codArea = $request->codArea;
+        $mujer->subarea = $request->subArea;
+        $mujer->datos = $request->datos;
+        $mujer->enlace = $request->enlace;
+        $mujer->codZona = $request->codZona;
+        $mujer->zona = $request->zona;
+        $mujer->fotografia = $request->fotografia;
+
+        $mujer->save();
+        //Esta función guardará las tareas que enviaremos mediante vuejs
+    }
     public function show(Request $request)
     {
         $peticion = Peticion::findOrFail($request->codPeti);
@@ -44,10 +71,10 @@ class PeticionsController extends Controller
     {
         $peticion = Peticion::findOrFail($request->codPeti);
 
-        $peticion->nombreMujer = $request->nombreMujer;
+        $peticion->nombre = $request->nombreMujer;
         $peticion->fechas = $request->fechas;
         $peticion->codArea = $request->codArea;
-        $peticion->subArea = $request->subArea;
+        $peticion->subarea = $request->subArea;
         $peticion->datos = $request->datos;
         $peticion->enlace = $request->enlace;
         $peticion->codZona = $request->codZona;
@@ -59,7 +86,30 @@ class PeticionsController extends Controller
         return $peticion;
         //Esta función actualizará la tarea que hayamos seleccionado
 
+    }public function actualizaar(Request $request)
+    {
+        $mujer = new Mujer();
+        // $peticion = Peticion::findOrFail($request->id);
+
+
+        $mujer->nombre = $request->nombreMujer;
+        $mujer->fechas = $request->fechas;
+        $mujer->codArea = $request->codArea;
+        $mujer->subarea = $request->subArea;
+        $mujer->datos = $request->datos;
+        $mujer->enlace = $request->enlace;
+        $mujer->codZona = $request->codZona;
+        $mujer->zona = $request->zona;
+        $mujer->fotografia = $request->fotografia;
+
+        $mujer->save();
+
+        return $mujer;
+        //Esta función actualizará la tarea que hayamos seleccionado
+
     }
+
+
 
     public function destroy(Request $request)
     {

@@ -24,4 +24,8 @@ class Mujer extends Model
     public function zona() {
         return $this->hasOne('App\Zona');
     }
+
+    // No necesitamos tener
+    public $timestamps = false;
+
 }

@@ -1923,6 +1923,214 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/mujer.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/mujer.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      codArea: "",
+      nombre: "",
+      //Esta variable, mediante v-model esta relacionada con el input del formulario
+      fechas: "",
+      //Esta variable, mediante v-model esta relacionada con el input del formulario
+      subarea: "",
+      datos: "",
+      //Esta variable, mediante v-model esta relacionada con el input del formulario
+      datos_eus: "",
+      //Esta variable, mediante v-model esta relacionada con el input del formulario
+      datos_ing: "",
+      //Esta variable, mediante v-model esta relacionada con el input del formulario
+      enlace: "",
+      //Esta variable, mediante v-model esta relacionada con el input del formulario
+      codZona: "",
+      //Esta variable, mediante v-model esta relacionada con el input del formulario
+      zona: "",
+      //Esta variable, mediante v-model esta relacionada con el input del formulario
+      fotografia: "",
+      //Esta variable, mediante v-model esta relacionada con el input del formulario
+      update: 0,
+
+      /*Esta variable contrarolará cuando es una nueva tarea o una modificación, si es 0 significará que no hemos seleccionado
+      ninguna tarea, pero si es diferente de 0 entonces tendrá el id de la tarea y no mostrará el boton guardar sino el modificar*/
+      arrayMujeres: [] //Este array contendrá las tareas de nuestra bd
+
+    };
+  },
+  methods: {
+    getTasks: function getTasks() {
+      var me = this;
+      var url = 'mujer'; //Ruta que hemos creado para que nos devuelva todas las tareas
+
+      axios.get(url).then(function (response) {
+        //creamos un array y guardamos el contenido que nos devuelve el response
+        me.arrayMujeres = response.data;
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      });
+    },
+    /////////////////////////////////////////////////
+    saveTasks: function saveTasks() {
+      var me = this;
+      var url = 'mujer/guardar'; //Ruta que hemos creado para enviar una tarea y guardarla
+
+      axios.post(url, {
+        //estas variables son las que enviaremos para que crear la tarea
+        'codArea': this.codArea,
+        'nombre': this.nombre,
+        'fechas': this.fechas,
+        'subArea': this.subarea,
+        'datos': this.datos,
+        'datos_eus': this.datos_eus,
+        'datos_ing': this.datos_ing,
+        'enlace': this.enlace,
+        'codZona': this.codZona,
+        'zona': this.Zona,
+        'fotografia': this.fotografia
+      }).then(function (response) {
+        me.getTasks(); //llamamos al metodo getTask(); para que refresque nuestro array y muestro los nuevos datos
+
+        me.clearFields(); //Limpiamos los campos e inicializamos la variable update a 0
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    updateTasks: function updateTasks() {
+      /*Esta funcion, es igual que la anterior, solo que tambien envia la variable update que contiene el id de la
+      tarea que queremos modificar*/
+      var me = this;
+      axios.put('mujer/actualizar', {
+        'codArea': this.codArea,
+        'nombre': this.nombre,
+        'fechas': this.fechas,
+        'subArea': this.subarea,
+        'datos': this.datos,
+        'datos_eus': this.datos_eus,
+        'datos_ing': this.datos_ing,
+        'enlace': this.enlace,
+        'codZona': this.codZona,
+        'zona': this.Zona,
+        'fotografia': this.fotografia
+      }).then(function (response) {
+        me.getTasks(); //llamamos al metodo getTask(); para que refresque nuestro array y muestro los nuevos datos
+
+        me.clearFields(); //Limpiamos los campos e inicializamos la variable update a 0
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    loadFieldsUpdate: function loadFieldsUpdate(data) {
+      //Esta función rellena los campos y la variable update, con la tarea que queremos modificar
+      this.update = data.codPeti;
+      var me = this;
+      var url = 'mujer/buscar?id=' + this.update;
+      axios.get(url).then(function (response) {
+        me.codArea = response.data.codArea;
+        me.nombre = response.data.nombre;
+        me.fechas = response.data.fechas;
+        me.subarea = response.data.subarea;
+        me.datos = response.data.datos;
+        me.datos_eus = response.data.datos_eus;
+        me.datos_ing = response.data.datos_ing;
+        me.enlace = response.data.enlace;
+        me.codZona = response.data.codZona;
+        me.zona = response.data.zona;
+        me.fotografia = response.data.fotografia;
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      });
+    },
+    deleteTask: function deleteTask(data) {
+      //Esta nos abrirá un alert de javascript y si aceptamos borrará la tarea que hemos elegido
+      var me = this;
+      var idM = data.id;
+
+      if (confirm('¿Seguro que deseas borrar esta tarea?' + idM)) {
+        axios["delete"]('mujer/borrar/' + idM).then(function (response) {
+          me.getTasks();
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      }
+    },
+    clearFields: function clearFields() {
+      /*Limpia los campos e inicializa la variable update a 0*/
+      this.codArea = "";
+      this.nombre = "";
+      this.fechas = "";
+      this.subarea = "";
+      this.datos = "";
+      this.datos_eus = "";
+      this.datos_ing = "";
+      this.enlace = "";
+      this.codZona = "";
+      this.zona = "";
+      this.fotografia = "";
+      this.update = 0;
+    }
+  },
+  mounted: function mounted() {
+    this.getTasks();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/peticion.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/peticion.vue?vue&type=script&lang=js& ***!
@@ -2051,7 +2259,7 @@ __webpack_require__.r(__webpack_exports__);
         'datos': this.datos,
         'enlace': this.enlace,
         'codArea': this.codArea,
-        'zona': this.Zona,
+        'zona': this.zona,
         'fotografia': this.fotografia
       }).then(function (response) {
         me.getTasks(); //llamamos al metodo getTask(); para que refresque nuestro array y muestro los nuevos datos
@@ -2091,8 +2299,51 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2156,6 +2407,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      codPeti: "",
       nombreMujer: "",
       //Esta variable, mediante v-model esta relacionada con el input del formulario
       fechas: "",
@@ -2177,8 +2429,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       /*Esta variable contrarolará cuando es una nueva tarea o una modificación, si es 0 significará que no hemos seleccionado
       ninguna tarea, pero si es diferente de 0 entonces tendrá el id de la tarea y no mostrará el boton guardar sino el modificar*/
-      arrayPeticiones: [] //Este array contendrá las tareas de nuestra bd
-
+      arrayPeticiones: [],
+      //Este array contendrá las tareas de nuestra bd
+      arrayMujeres: []
     };
   },
   methods: {
@@ -2189,74 +2442,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.get(url).then(function (response) {
         //creamos un array y guardamos el contenido que nos devuelve el response
         me.arrayPeticiones = response.data;
-      })["catch"](function (error) {
-        // handle error
-        console.log(error);
-      });
-    },
-    saveTasks: function saveTasks() {
-      var _axios$post;
-
-      var me = this;
-      var url = 'peticion/guardar'; //Ruta que hemos creado para enviar una tarea y guardarla
-
-      axios.post(url, (_axios$post = {
-        //estas variables son las que enviaremos para que crear la tarea
-        'nombreMujer': this.nombreMujer,
-        'fechas': this.fechas,
-        'subArea': this.subArea,
-        'codZona': this.codZona,
-        'datos': this.datos,
-        'enlace': this.enlace,
-        'codArea': this.codArea,
-        'zona': this.Zona,
-        'fotografia': this.fotografia
-      }, _defineProperty(_axios$post, "nombreMujer", this.nombre), _defineProperty(_axios$post, "fechas", this.fechas), _defineProperty(_axios$post, "subArea", this.subarea), _defineProperty(_axios$post, "codZona", this.codZona), _defineProperty(_axios$post, "datos", this.datos), _defineProperty(_axios$post, "enlace", this.enlace), _defineProperty(_axios$post, "codArea", this.codArea), _defineProperty(_axios$post, "zona", this.Zona), _defineProperty(_axios$post, "fotografia", this.fotografia), _axios$post)).then(function (response) {
-        me.getTasks(); //llamamos al metodo getTask(); para que refresque nuestro array y muestro los nuevos datos
-
-        me.clearFields(); //Limpiamos los campos e inicializamos la variable update a 0
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    },
-    updateTasks: function updateTasks() {
-      /*Esta funcion, es igual que la anterior, solo que tambien envia la variable update que contiene el id de la
-      tarea que queremos modificar*/
-      var me = this;
-      axios.put('peticion/actualizar', {
-        'codPeti': this.update,
-        'nombreMujer': this.nombreMujer,
-        'fechas': this.fechas,
-        'subArea': this.subArea,
-        'codZona': this.codZona,
-        'datos': this.datos,
-        'enlace': this.enlace,
-        'codArea': this.codArea,
-        'zona': this.Zona,
-        'fotografia': this.fotografia
-      }).then(function (response) {
-        me.getTasks(); //llamamos al metodo getTask(); para que refresque nuestro array y muestro los nuevos datos
-
-        me.clearFields(); //Limpiamos los campos e inicializamos la variable update a 0
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    },
-    loadFieldsUpdate: function loadFieldsUpdate(data) {
-      //Esta función rellena los campos y la variable update, con la tarea que queremos modificar
-      this.update = data.codPeti;
-      var me = this;
-      var url = 'peticion/buscar?codPeti=' + this.update;
-      axios.get(url).then(function (response) {
-        me.nombreMujer = response.data.nombreMujer;
-        me.fechas = response.data.fechas;
-        me.subArea = response.data.subArea;
-        me.datos = response.data.datos;
-        me.enlace = response.data.enlace;
-        me.codArea = response.data.codArea;
-        me.codZona = response.data.codZona;
-        me.zona = response.data.zona;
-        me.fotografia = response.data.fotografia;
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -2274,6 +2459,87 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           console.log(error);
         });
       }
+    },
+    borrasDespuesDeGuardar: function borrasDespuesDeGuardar(codigo) {
+      //Esta nos abrirá un alert de javascript y si aceptamos borrará la tarea que hemos elegido
+      if (confirm('¿Seguro que deseas borrar esta tarea?' + codigo)) {
+        axios["delete"]('peticion/borrar/' + codigo).then(function (response) {
+          me.getTasks();
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      }
+    },
+    // saveTasks(){
+    //     let me =this;
+    //     let url = 'peticion/guardaar'
+    //      //Ruta que hemos creado para enviar una tarea y guardarla
+    //     axios.post(url,{ //estas variables son las que enviaremos para que crear la tarea
+    //         'nombre':this.nombreMujer,
+    //         'fechas':this.fechas,
+    //         'subArea':this.subArea,
+    //         'codZona':this.codZona,
+    //         'datos':this.datos,
+    //         'enlace':this.enlace,
+    //         'codArea':this.codArea,
+    //         'zona':this.zona,
+    //         'fotografia':this.fotografia,
+    //     }).then(function (response) {
+    //         me.getTasks();//llamamos al metodo getTask(); para que refresque nuestro array y muestro los nuevos datos
+    //         // me.clearFields();//Limpiamos los campos e inicializamos la variable update a 0
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     });
+    // },
+    updateTasks: function updateTasks() {
+      /*Esta funcion, es igual que la anterior, solo que tambien envia la variable update que contiene el id de la
+      tarea que queremos modificar*/
+      var me = this;
+      console.log("------>" + me.codPeti);
+      axios.post('peticion/guardaar', {
+        'nombre': this.nombreMujer,
+        'fechas': this.fechas,
+        'subArea': this.subArea,
+        'codZona': this.codZona,
+        'datos': this.datos,
+        'enlace': this.enlace,
+        'codArea': this.codArea,
+        'zona': this.zona,
+        'fotografia': this.fotografia
+      }).then(function (response) {
+        //    me.saveTasks();
+        me.borrasDespuesDeGuardar(me.codPeti);
+        me.getTasks(); //llamamos al metodo getTask(); para que refresque nuestro array y muestro los nuevos datos
+
+        me.clearFields(); //Limpiamos los campos e inicializamos la variable update a 0
+      }).then(function (response) {
+        me.getTasks(); //llamamos al metodo getTask(); para que refresque nuestro array y muestro los nuevos datos
+        // me.clearFields();//Limpiamos los campos e inicializamos la variable update a 0
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    loadFieldsUpdate: function loadFieldsUpdate(data) {
+      //Esta función rellena los campos y la variable update, con la tarea que queremos modificar
+      this.update = data.codPeti;
+      var me = this;
+      var url = 'peticion/buscar?codPeti=' + this.update;
+      axios.get(url).then(function (response) {
+        me.codPeti = response.data.codPeti;
+        me.nombreMujer = response.data.nombreMujer;
+        me.fechas = response.data.fechas;
+        me.subArea = response.data.subArea;
+        me.datos = response.data.datos;
+        me.enlace = response.data.enlace;
+        me.codArea = response.data.codArea;
+        me.codZona = response.data.codZona;
+        me.zona = response.data.zona;
+        me.fotografia = response.data.fotografia;
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      });
     },
     clearFields: function clearFields() {
       /*Limpia los campos e inicializa la variable update a 0*/
@@ -37651,6 +37917,145 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/mujer.vue?vue&type=template&id=dfe4d598&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/mujer.vue?vue&type=template&id=dfe4d598& ***!
+  \********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container container-task" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("h2", [_vm._v("Listado de mujeres")]),
+        _vm._v(" "),
+        _c(
+          "table",
+          { staticClass: "table text-center", attrs: { id: "app" } },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.arrayMujeres, function(mujeres) {
+                return _c("tr", { key: mujeres.id }, [
+                  _c("td", {
+                    domProps: { textContent: _vm._s(mujeres.codArea) }
+                  }),
+                  _vm._v(" "),
+                  _c("td", {
+                    domProps: { textContent: _vm._s(mujeres.nombre) }
+                  }),
+                  _vm._v(" "),
+                  _c("td", {
+                    domProps: { textContent: _vm._s(mujeres.fechas) }
+                  }),
+                  _vm._v(" "),
+                  _c("td", {
+                    domProps: { textContent: _vm._s(mujeres.datos) }
+                  }),
+                  _vm._v(" "),
+                  _c("td", {
+                    domProps: { textContent: _vm._s(mujeres.datos_eus) }
+                  }),
+                  _vm._v(" "),
+                  _c("td", {
+                    domProps: { textContent: _vm._s(mujeres.datos_ing) }
+                  }),
+                  _vm._v(" "),
+                  _c("td", {
+                    domProps: { textContent: _vm._s(mujeres.enlace) }
+                  }),
+                  _vm._v(" "),
+                  _c("td", {
+                    domProps: { textContent: _vm._s(mujeres.codZona) }
+                  }),
+                  _vm._v(" "),
+                  _c("td", { domProps: { textContent: _vm._s(mujeres.zona) } }),
+                  _vm._v(" "),
+                  _c("td", {
+                    domProps: { textContent: _vm._s(mujeres.fotografia) }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn",
+                      on: {
+                        click: function($event) {
+                          return _vm.loadFieldsUpdate(mujeres)
+                        }
+                      }
+                    },
+                    [_vm._v("editar")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn",
+                      on: {
+                        click: function($event) {
+                          return _vm.deleteTask(mujeres)
+                        }
+                      }
+                    },
+                    [_vm._v("Borrar")]
+                  )
+                ])
+              }),
+              0
+            )
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("codArea")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fecha")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("datos")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("datos_eus")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("datos_ing")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("enlace")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("codZona")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("zona")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fotografia")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/peticion.vue?vue&type=template&id=4fd218ba&":
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/peticion.vue?vue&type=template&id=4fd218ba& ***!
@@ -37996,127 +38401,394 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container container-task" }, [
     _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col-md-6" },
-        [
-          _c("h2", [_vm._v("Listado de peticiones")]),
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("h2", [_vm._v("Listado de peticiones")]),
+        _vm._v(" "),
+        _c("table", { staticClass: "table text-center" }, [
+          _vm._m(0),
           _vm._v(" "),
-          _c("table", { staticClass: "table text-center" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.arrayPeticiones, function(peticiones) {
-                return _c("tr", { key: peticiones.codPeti }, [
-                  _c("td", {
-                    domProps: { textContent: _vm._s(peticiones.nombreMujer) }
-                  }),
-                  _vm._v(" "),
-                  _c("td", {
-                    domProps: { textContent: _vm._s(peticiones.fechas) }
-                  }),
-                  _vm._v(" "),
-                  _c("td", {
-                    domProps: { textContent: _vm._s(peticiones.codArea) }
-                  }),
-                  _vm._v(" "),
-                  _c("td", {
-                    domProps: { textContent: _vm._s(peticiones.subArea) }
-                  }),
-                  _vm._v(" "),
-                  _c("td", {
-                    domProps: { textContent: _vm._s(peticiones.datos) }
-                  }),
-                  _vm._v(" "),
-                  _c("td", {
-                    domProps: { textContent: _vm._s(peticiones.enlace) }
-                  }),
-                  _vm._v(" "),
-                  _c("td", {
-                    domProps: { textContent: _vm._s(peticiones.codZona) }
-                  }),
-                  _vm._v(" "),
-                  _c("td", {
-                    domProps: { textContent: _vm._s(peticiones.zona) }
-                  }),
-                  _vm._v(" "),
-                  _c("td", {
-                    domProps: { textContent: _vm._s(peticiones.fotografia) }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn",
-                      on: {
-                        click: function($event) {
-                          return _vm.loadFieldsUpdate(peticiones)
-                        }
+          _c(
+            "tbody",
+            _vm._l(_vm.arrayPeticiones, function(peticiones) {
+              return _c("tr", { key: peticiones.codPeti }, [
+                _c("td", {
+                  domProps: { textContent: _vm._s(peticiones.codPeti) }
+                }),
+                _vm._v(" "),
+                _c("td", {
+                  domProps: { textContent: _vm._s(peticiones.nombreMujer) }
+                }),
+                _vm._v(" "),
+                _c("td", {
+                  domProps: { textContent: _vm._s(peticiones.fechas) }
+                }),
+                _vm._v(" "),
+                _c("td", {
+                  domProps: { textContent: _vm._s(peticiones.codArea) }
+                }),
+                _vm._v(" "),
+                _c("td", {
+                  domProps: { textContent: _vm._s(peticiones.subArea) }
+                }),
+                _vm._v(" "),
+                _c("td", {
+                  domProps: { textContent: _vm._s(peticiones.datos) }
+                }),
+                _vm._v(" "),
+                _c("td", {
+                  domProps: { textContent: _vm._s(peticiones.enlace) }
+                }),
+                _vm._v(" "),
+                _c("td", {
+                  domProps: { textContent: _vm._s(peticiones.codZona) }
+                }),
+                _vm._v(" "),
+                _c("td", {
+                  domProps: { textContent: _vm._s(peticiones.zona) }
+                }),
+                _vm._v(" "),
+                _c("td", {
+                  domProps: { textContent: _vm._s(peticiones.fotografia) }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success",
+                    on: {
+                      click: function($event) {
+                        return _vm.loadFieldsUpdate(peticiones)
                       }
-                    },
-                    [_vm._v("Modificar")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn",
-                      on: {
-                        click: function($event) {
-                          return _vm.deleteTask(peticiones)
-                        }
+                    }
+                  },
+                  [_vm._v("Modificar")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-warning",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteTask(peticiones)
                       }
-                    },
-                    [_vm._v("Borrar")]
-                  ),
-                  _vm._v(" "),
-                  _vm.update == 0
-                    ? _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-success",
-                          on: {
-                            click: function($event) {
-                              return _vm.saveTasks()
-                            }
-                          }
-                        },
-                        [_vm._v("añadir")]
-                      )
-                    : _vm._e()
-                ])
-              }),
-              0
-            )
-          ]),
-          _vm._v(" "),
-          _vm._l(_vm.arrayMujeres, function(mujeres) {
-            return _c("tr", { key: mujeres.id }, [
-              _c("td", { domProps: { textContent: _vm._s(mujeres.nombre) } }),
-              _vm._v(" "),
-              _c("td", { domProps: { textContent: _vm._s(mujeres.fechas) } }),
-              _vm._v(" "),
-              _c("td", { domProps: { textContent: _vm._s(mujeres.codArea) } }),
-              _vm._v(" "),
-              _c("td", { domProps: { textContent: _vm._s(mujeres.subarea) } }),
-              _vm._v(" "),
-              _c("td", { domProps: { textContent: _vm._s(mujeres.datos) } }),
-              _vm._v(" "),
-              _c("td", { domProps: { textContent: _vm._s(mujeres.enlace) } }),
-              _vm._v(" "),
-              _c("td", { domProps: { textContent: _vm._s(mujeres.codZona) } }),
-              _vm._v(" "),
-              _c("td", { domProps: { textContent: _vm._s(mujeres.zona) } }),
-              _vm._v(" "),
-              _c("td", {
-                domProps: { textContent: _vm._s(mujeres.fotografia) }
-              })
-            ])
-          })
+                    }
+                  },
+                  [_vm._v("Borrar")]
+                )
+              ])
+            }),
+            0
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { hidden: "" } }, [_vm._v("Codigo")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.codPeti,
+            expression: "codPeti"
+          }
         ],
-        2
-      )
+        staticClass: "form-control",
+        attrs: { hidden: "", type: "text", name: "codPeti" },
+        domProps: { value: _vm.codPeti },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.codPeti = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", [_vm._v("Nombre de mujer")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.nombreMujer,
+            expression: "nombreMujer"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: { type: "text", name: "nombreMujer" },
+        domProps: { value: _vm.nombreMujer },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.nombreMujer = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", [_vm._v("Fecha")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.fechas,
+            expression: "fechas"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: { type: "text", name: "fechas" },
+        domProps: { value: _vm.fechas },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.fechas = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", [_vm._v("codArea")]),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.codArea,
+              expression: "codArea"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { name: "codArea" },
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.codArea = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        [
+          _c("option", { attrs: { value: "1" } }, [_vm._v("Historia")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "2" } }, [_vm._v("Derecho")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "3" } }, [_vm._v("Antropología")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "4" } }, [_vm._v("Geografía")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "5" } }, [_vm._v("Filosofía")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "6" } }, [_vm._v("Psicología")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "7" } }, [_vm._v("Economía")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "8" } }, [_vm._v("Sociología")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "9" } }, [_vm._v("Pedalogía")])
+        ]
+      ),
+      _vm._v(" "),
+      _c("label", [_vm._v("subArea")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.subArea,
+            expression: "subArea"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: { type: "text", name: "subArea" },
+        domProps: { value: _vm.subArea },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.subArea = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", [_vm._v("Datos")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.datos,
+            expression: "datos"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: { type: "text", name: "datos" },
+        domProps: { value: _vm.datos },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.datos = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", [_vm._v("Enlace")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.enlace,
+            expression: "enlace"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: { type: "text", name: "enlace" },
+        domProps: { value: _vm.enlace },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.enlace = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", [_vm._v("continente")]),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.codZona,
+              expression: "codZona"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { name: "codZona" },
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.codZona = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        [
+          _c("option", { attrs: { value: "1" } }, [_vm._v("Europa")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "2" } }, [_vm._v("Norte America")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "3" } }, [_vm._v("America Latina")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "4" } }, [_vm._v("Asia")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "5" } }, [_vm._v("Oceania")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "6" } }, [_vm._v("africa")])
+        ]
+      ),
+      _vm._v(" "),
+      _c("label", [_vm._v("zona")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.zona,
+            expression: "zona"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: { type: "text", name: "zona" },
+        domProps: { value: _vm.zona },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.zona = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", [_vm._v("fotografia")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.fotografia,
+            expression: "fotografia"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: { type: "text", name: "fotografia" },
+        domProps: { value: _vm.fotografia },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.fotografia = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _vm.update != 0
+        ? _c(
+            "button",
+            {
+              staticClass: "btn btn-warning",
+              on: {
+                click: function($event) {
+                  return _vm.updateTasks()
+                }
+              }
+            },
+            [_vm._v("Guardar")]
+          )
+        : _vm._e()
     ])
   ])
 }
@@ -38127,6 +38799,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Codigo")]),
+        _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre Mujer")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Fecha")]),
@@ -50340,6 +51014,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('peticion-component', __webpack_require__(/*! ./components/peticion.vue */ "./resources/js/components/peticion.vue")["default"]);
 Vue.component('tabla-component', __webpack_require__(/*! ./components/tabla.vue */ "./resources/js/components/tabla.vue")["default"]);
+Vue.component('mujer-component', __webpack_require__(/*! ./components/mujer.vue */ "./resources/js/components/mujer.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50394,6 +51069,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/mujer.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/components/mujer.vue ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mujer_vue_vue_type_template_id_dfe4d598___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mujer.vue?vue&type=template&id=dfe4d598& */ "./resources/js/components/mujer.vue?vue&type=template&id=dfe4d598&");
+/* harmony import */ var _mujer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mujer.vue?vue&type=script&lang=js& */ "./resources/js/components/mujer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _mujer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _mujer_vue_vue_type_template_id_dfe4d598___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _mujer_vue_vue_type_template_id_dfe4d598___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/mujer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/mujer.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/mujer.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_mujer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./mujer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/mujer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_mujer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/mujer.vue?vue&type=template&id=dfe4d598&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/mujer.vue?vue&type=template&id=dfe4d598& ***!
+  \**************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_mujer_vue_vue_type_template_id_dfe4d598___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./mujer.vue?vue&type=template&id=dfe4d598& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/mujer.vue?vue&type=template&id=dfe4d598&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_mujer_vue_vue_type_template_id_dfe4d598___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_mujer_vue_vue_type_template_id_dfe4d598___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
