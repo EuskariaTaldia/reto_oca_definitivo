@@ -3,36 +3,41 @@
 namespace App\Http\Controllers;
 
 use App\Peticion;
+use App\Area;
+use App\Zona;
+
 use Illuminate\Http\Request;
 
 class PeticionController extends Controller
 {
     public function getFormulario() {
-        return view('peticion.crear');
+        $arrayAreas = Area::all();
+        $arrayZonas = Zona::all();
+
+        return view('peticion.crear', compact("arrayZonas", "arrayAreas"));
     }
 
     
     public function getTabla() {
-
         $peticion = peticion::all();
 
-
-        return view('peticion.tabla',["arraypeticiones" => $peticion]);
+        return view('peticion.tabla', ["arraypeticiones" => $peticion]);
     }
 
-        // recoger datos para insertar en la base de datos
+    
+    // recoger datos para insertar en la base de datos
     public function guardar(request $request){
 
         $peticion = new Peticion;
 
-        $peticion->nombreApellido = $request->input('nombre');
+        $peticion->nombreMujer = $request->input('nombre');
         $peticion->subArea = $request->input('subArea');
-        $peticion->area = $request->input('area');
-        $peticion->zona = $request->input('zona');
-        $peticion->zonaGeografica = $request->input('zonaGeografica');
-        $peticion->foto = $request->input('foto');
-        $peticion->fecha = $request->input('fecha');
-        $peticion->mensaje = $request->input('mensaje');
+        $peticion->codArea = $request->input('area');
+        $peticion->codZona = $request->input('zona');
+        $peticion->zona = $request->input('pais');
+        $peticion->fotografia = $request->input('foto');
+        $peticion->fechas = $request->input('fecha');
+        $peticion->datos = $request->input('información');
         $peticion->enlace = $request->input('enlace');
 
         $peticion->save();

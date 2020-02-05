@@ -12,7 +12,6 @@ class ImprimirController extends Controller  {
     // TODAS las mujeres modo CARTA  
     public function getGaleria() {
         $arrayMujeres = Mujer::all();
-        // $arrayAreas = Area::all();
         
         if(Auth::check() ) {
             $usuario = Auth::user();
@@ -34,9 +33,8 @@ class ImprimirController extends Controller  {
         }
 
         // return view('imprimir.preguntas',  compact("usuario", "arrayPreguntas"));
-        // PRUEBAS
-
         
+        // PRUEBAS        
         $arraymujeres = Mujer::all();
 
         return view('imprimir.mujeres', compact("usuario", "arraymujeres"));

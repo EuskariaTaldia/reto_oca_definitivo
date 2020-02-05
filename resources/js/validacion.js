@@ -71,6 +71,10 @@ function validaFechas() {
             return false;
         }
 
+        if (elemento.validity.valueMissing) {
+            elemento.value = " ";
+        }
+
         return false;
     }
     return true;
@@ -90,10 +94,13 @@ function validaSubArea() {
             error(elemento, "La subarea no debe de contener más de 50 caracteres.");
             return false;
         }
+        
+        if (elemento.validity.valueMissing) {
+            elemento.value = " ";
+        }
 
         return false;
     }
-    alert("subarea bien");
     return true;
 }
 
@@ -115,56 +122,76 @@ function validaPais() {
             return false;
         }
 
+        if (elemento.validity.valueMissing) {
+            elemento.value = " ";
+        }        
+
         return false;
     }
     return true;
 }
 
-function validaUrl() {
-    var elemento = document.getElementById("foto");
-    var elemento2 = document.getElementById("enlace");
+function validaUrlFoto() {
+    var elemento = document.getElementById("foto");    
 
-    if (!elemento.checkValidity()) {
-        if (elemento.validity.patternMismatch) {
-            error(elemento, "Tiene que ser un URL.");
+    if (!elemento.checkValidity()) {     
+        if (elemento.validity.valueMissing) {
+            elemento.value = " ";     
+            return true;     
+
+        } 
+
+        if (elemento.validity.patternMismatch && elemento.value != " ")  {
+            error(elemento, "La foto tiene que ser un URL.");
             return false;
         }
 
         if (elemento.value.length > 300) {
             error(elemento, "El URL de la foto no debe de contener más de 300 caracteres.");
             return false;
-        }
-
-        return false;
-    }
-
-    if (!elemento2.checkValidity()) {
-        if (elemento.validity.valueMissing) {
-            error(elemento, "Tienes que poner el URL de la información.");
-            return false;
-        }
-
-        if (elemento2.validity.patternMismatch) {
-            error(elemento2, "Tiene que ser un URL.");
-            return false;
-        }
-
-        if (elemento2.value.length > 300) {
-            error(elemento2, "El URL de la información no debe de contener más de 200 caracteres.");
-            return false;
-        }
-
+        }    
+        
+        
+    
         return false;
     }
 
     return true;
 }
 
+function validaUrlEnlace(){
+    var elemento = document.getElementById("enlace");
+
+    if (!elemento.checkValidity()) {
+        if (elemento.validity.valueMissing) {
+            error(elemento, "Tienes que poner el URL de la información.");
+            return false;
+        }
+
+        if (elemento.validity.patternMismatch) {
+            error(elemento, "Tiene que ser un URL.");
+            return false;
+        }
+
+        if (elemento.value.length > 300) {
+            error(elemento, "El URL de la información no debe de contener más de 200 caracteres.");
+            return false;
+        }
+
+        return false;
+    }
+
+}
 
 function validaInformacion() {
     var elemento = document.getElementById("informacion");
 
     if (!elemento.checkValidity()) {
+        if (elemento.validity.valueMissing) {
+            elemento.value = " ";
+            alert("informacion");
+        }
+
         if (elemento.validity.patternMismatch) {
             error(elemento, "Caracteres incorrectos.");
             return false;
@@ -339,7 +366,6 @@ function error(elemento, mensaje) {
     elemento.focus();
 }
 
-
 function borrarError() {
     const logForm = document.getElementById("logForm");
     if(logForm != null){
@@ -392,7 +418,7 @@ function validarJuego(e) {
 // Validaciones para las PETICIONES
 function validarPeticion(e) {
     borrarError();
-    if (validaNombreCompleto() && validaFechas() && validaSubArea() && validaPais() && validaUrl() && validInformacion() && confirm("Pulsa aceptar si deseas enviar el formulario")) {
+    if (validaNombreCompleto() && validaFechas() && validaSubArea() && validaPais() && validaUrlFoto() && validaUrlEnlace() && validaInformacion() && confirm("Pulsa aceptar si deseas enviar el formulario")) {
         return true
     } else {
         e.preventDefault();
