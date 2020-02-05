@@ -32,14 +32,12 @@
             {{-- <div class="col-lg-1"></div> --}}
             <div class="col-lg-7 col-md-12">
                 {{-- Imprimimos datos de las mujeres --}}
-                <h3 class="colorLetr">{{$mujer->nombre}}</h3>
-                <h5 class="colorLetr"> Año: {{$mujer->fechas}}</h5>
-            
-                <h5 class="colorLetr"> Sub-Area: {{$mujer->subarea}}</h5>
-                <h5 class="colorLetr">Zona: {{$mujer->zona}}</h5>
-                <h5 class="colorLetr"> Datos:</h5><p class="colorLetr"> {{$mujer->datos}}</p>
-
-
+                <h3 class="colorLetr text-uppercase"><b>{{$mujer->nombre}}</b></h3>
+                <br>
+                <h5 class="colorLetr"><b>Año: </b>{{$mujer->fechas}}</h5>            
+                <h5 class="colorLetr"><b>Sub-Area: </b>{{$mujer->subarea}}</h5>
+                <h5 class="colorLetr"><b>Zona: </b>{{$mujer->zona}}</h5>
+                <h5 class="colorLetr"></h5><p class="colorLetr"> {{$mujer->datos}}</p>
                 <a class="btn btn-light" href="{{$mujer->enlace}}">Fuente</a>
             {{-- </div> --}}
             </div>

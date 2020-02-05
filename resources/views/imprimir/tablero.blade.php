@@ -7,7 +7,8 @@
     <input type="hidden" id="especificacion" name="especificacion" value="{{$especificacion}}">
     <input type="hidden" id="jugador" name="jugador" value="{{$jugador}}">
   {{-- -------------------------------------------------------------------------------------------  --}}
-  
+
+
 
   {{-- MODAL PERDIDA DE TURNO --}}
   <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
@@ -47,14 +48,44 @@
           
         <h2 id="tiro" style="clear:left;"></h2>
         <h2 id="turno" style="clear:left;"></h2>
-        
-        <div class="tabla" id="tabla"></div>
+        <!-- tablero -->
+        <div class="tabla" id="tabla">
+        <?php
+        $html = '';
+        $totalItem = 64;
+        $casillasEspeciales = [6, 12 , 19, 31, 42, 26, 53, 58, 63, 5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59];
+        $Tiponormal=[158,102,196,194,76,96,98,161,89,192,37,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+        $k=1;
+        for($i = 0; $i < $totalItem; $i++){
+          if(in_array($i,$casillasEspeciales,true)){
+            $html .= '<div id="'.$i.'" style="grid-area: c'.$i.'">'.$i;
+          }else{
+            foreach ($arrayMujeres as $mujer){
+            if($mujer->id==$Tiponormal[$k]){
+              if($mujer->fotografia==null){
+                $html .= '<div id="'.$i.'" style="background-image: src('.$mujer->fotografia.'); grid-area: c'.$i.'">'.$i;
+
+                }else{
+                  $html .= '<div id="'.$i.'" style="background-image: url('.$mujer->fotografia.'); grid-area: c'.$i.'">'.$i;
+
+           }
+              }else{
+              } 
+            }
+            $k=$k+1;
+
+         }
+          $html .='</div>';
+        }
+      
+        echo $html;
+        ?>
+        </div>
+        <!-- fin tableor -->
         <nav class="fixed-bottom ">
           <div id="die1" class="dice"></div>
-          <img id="dado" src='../public/images/tablero/dado1.png' alt='dado' onclick="onclikar()" style="cursor: pointer">
-
-          {{-- <button onclick="onclikar()">Tira el Dado</button> --}}
-          {{-- <button onclick="valores(1,19)"> Dado trampa</button>  --}}
+          <button onclick="onclikar()">Tira el Dado</button>
+          <button onclick="valores(1,19)"> Dado trampa</button> 
           <button onclick="window.print();">imprimir</button>
         
         <nav>

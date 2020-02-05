@@ -81,14 +81,16 @@ class ImprimirController extends Controller  {
             $especificacion = "null";
         }
         $mujeres = Mujer::all();
+        $arrayMujeres=$mujeres;
         $gameType = $request->input('gameType');
         $filtro = $request->filtro;
         $especificacion = $request->especificacion;
         $jugador = $request->input('jugador');
 
-        return view('imprimir.tablero',compact ("gameType", "filtro", "especificacion", "jugador","mujeres"));
+        return view('imprimir.tablero',compact ("gameType", "filtro", "especificacion", "jugador","arrayMujeres"));
         
 
     }
+
 
 }

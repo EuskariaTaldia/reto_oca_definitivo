@@ -1,3 +1,4 @@
+
 .myContainer {
     max-width: 100%;
 }
@@ -7,7 +8,6 @@
     grid-template-columns: auto auto;
     grid-gap: 10px; /*grind-colum-gap*/
 }
-
 [id*=ficha]{
     width: 10px;
 }
@@ -49,18 +49,13 @@
     grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px;
     grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px;
     text-align: center;
+    grid-template-areas: "c21 c20 c19 c18 c17 c16 c15 c14"
+                         "c22 c43 c42 c41 c40 c39 c38 c13"
+                         "c23 c44 c57 c56 c55 c54 c37 c12"
+                         "c24 c45 c58 c63 c62 c53 c36 c11"
+                         "c25 c46 c59 c60 c61 c52 c35 c10"
+                         "c26 c47 c48 c49 c50 c51 c34 c9"
+                         "c27 c28 c29 c30 c31 c32 c33 c8"
+                         "c0 c1 c2 c3 c4 c5 c6 c7"
+
 }
-/* 
-.tabla div#1{
-
-} */
-
-
-.tabla div#21, .tabla div#43{
-    border-radius: 50px 0px 0px 0px
-}
-
-
-/* .tabla:nth-child(7n) {
-    border-radius: 50px 0px 0px 0px
-} */

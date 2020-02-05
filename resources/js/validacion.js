@@ -198,7 +198,7 @@ function validaCorreo() {
         }
         
         if (elemento.value.length < 10 ||elemento.value.length > 30) {
-            errorRegistro(elemento, "La contraseña tiene que contener entre 8-30 caracteres");
+            errorRegistro(elemento, "El correo tiene que contener entre 10-30 caracteres");
             return false;
         }
 
@@ -268,6 +268,7 @@ function validaContraseñaRegistro() {
     }
 
     if(elemento.value != elemento2.value){
+        alert("ERROR");
         errorRegistro(elemento2, "Las contraseñas no coinciden!");
         return false;
     }
